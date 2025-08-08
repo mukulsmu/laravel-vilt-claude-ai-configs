@@ -1,6 +1,6 @@
 # AI Interaction Patterns
 
-Natural language development patterns and AI-assisted workflows for efficient development in the Marlin Laravel TALL stack application.
+Natural language development patterns and AI-assisted workflows for efficient development in the Laravel TALL stack application.
 
 ## Overview
 

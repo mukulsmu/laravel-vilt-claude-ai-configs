@@ -1,6 +1,6 @@
 # Performance Optimization Workflows
 
-Comprehensive performance analysis and optimization strategies for the Marlin Laravel TALL stack application using AI-assisted workflows.
+Comprehensive performance analysis and optimization strategies for the Laravel TALL stack application using AI-assisted workflows.
 
 ## Overview
 

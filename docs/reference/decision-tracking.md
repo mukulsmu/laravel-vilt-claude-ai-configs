@@ -1,6 +1,6 @@
 # Decision Tracking Framework
 
-Systematic approach to documenting architectural decisions, design choices, and development patterns in the Marlin Laravel TALL stack application.
+Systematic approach to documenting architectural decisions, design choices, and development patterns in the Laravel TALL stack application.
 
 ## Overview
 

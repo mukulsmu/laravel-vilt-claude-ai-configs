@@ -1,6 +1,6 @@
 # Development Environment Setup
 
-This guide helps you set up the Marlin development environment using Laravel Sail and Docker.
+This guide helps you set up the development environment using Laravel Sail and Docker.
 
 ## Prerequisites
 
@@ -14,7 +14,7 @@ This guide helps you set up the Marlin development environment using Laravel Sai
 
 ```bash
 git clone [repository-url]
-cd marlin
+cd laravel-tall-claude-ai-configs
 ```
 
 ### 2. Environment Configuration
@@ -25,8 +25,8 @@ cp .env.example .env
 
 # Configure database and services in .env
 # Key variables to set:
-# - APP_NAME=Marlin
-# - DB_DATABASE=marlin
+# - APP_NAME=LaravelTallClaudeAI
+# - DB_DATABASE=laravel_tall_claude_ai
 # - MEILISEARCH_HOST=http://meilisearch:7700
 ```
 

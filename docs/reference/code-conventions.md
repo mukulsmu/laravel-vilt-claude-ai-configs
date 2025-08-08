@@ -1,6 +1,6 @@
 # Code Conventions & Standards
 
-This document outlines the coding standards and conventions for the Marlin Laravel TALL stack application.
+This document outlines the coding standards and conventions for the Laravel TALL stack application.
 
 ## **⚠️ IMPORTANT: Current Architecture Status**
 

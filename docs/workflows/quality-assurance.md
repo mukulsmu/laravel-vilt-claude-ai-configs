@@ -1,6 +1,6 @@
 # Quality Assurance Workflows
 
-Comprehensive quality assurance processes for the Marlin Laravel TALL stack application using AI-assisted workflows.
+Comprehensive quality assurance processes for the Laravel TALL stack application using AI-assisted workflows.
 
 ## Overview
 

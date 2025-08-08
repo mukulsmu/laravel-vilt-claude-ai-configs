@@ -4,7 +4,7 @@ Systematic approaches to problem-solving, debugging, and root cause analysis usi
 
 ## Overview
 
-This document provides structured methodologies for investigating issues, debugging complex problems, and conducting thorough root cause analysis in the Marlin Laravel TALL stack application.
+This document provides structured methodologies for investigating issues, debugging complex problems, and conducting thorough root cause analysis in the Laravel TALL stack application.
 
 ## AI Specialist Delegation Framework
 

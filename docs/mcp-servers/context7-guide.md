@@ -54,7 +54,7 @@ mcp__context7__get-library-docs --context7CompatibleLibraryID="/laravel/docs/v10
 - **Version Awareness**: Version-specific guidance when needed
 - **Code Examples**: Practical implementation examples
 
-## Essential Libraries for Marlin Project
+## Essential Libraries for Laravel TALL Project
 
 ### Laravel Framework
 ```bash

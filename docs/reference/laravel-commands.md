@@ -1,6 +1,6 @@
 # Laravel Commands & Artisan Reference
 
-Complete reference for Laravel Artisan commands used in the Marlin project. All commands must be prefixed with `./vendor/bin/sail artisan`.
+Complete reference for Laravel Artisan commands used in the project. All commands must be prefixed with `./vendor/bin/sail artisan`.
 
 ## Laravel Core Commands
 
