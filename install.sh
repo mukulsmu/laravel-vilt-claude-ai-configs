@@ -90,7 +90,27 @@ if [ "$install_claude" = "y" ]; then
     cp -r .ai-config/.claude/instructions ./.claude/ 2>/dev/null || mkdir -p .claude/instructions && cp -r .ai-config/.claude/instructions ./.claude/
     cp -r .ai-config/.claude/agents ./.claude/ 2>/dev/null || mkdir -p .claude/agents && cp -r .ai-config/.claude/agents ./.claude/
     
-    echo "✅ Claude configurations installed"
+    # Install MCP configurations
+    echo "📡 Installing MCP configurations..."
+    
+    # Create .vscode directory if needed
+    mkdir -p .vscode
+    
+    # Handle .mcp.json (Claude Desktop)
+    if [ -f ".mcp.json" ]; then
+        echo "   Existing .mcp.json found (backing up as .mcp.json.backup)"
+        mv .mcp.json .mcp.json.backup
+    fi
+    cp .ai-config/templates/.mcp.json ./
+    
+    # Handle .vscode/mcp.json (GitHub Copilot in VS Code)
+    if [ -f ".vscode/mcp.json" ]; then
+        echo "   Existing .vscode/mcp.json found (backing up as .vscode/mcp.json.backup)"
+        mv .vscode/mcp.json .vscode/mcp.json.backup
+    fi
+    cp .ai-config/templates/.vscode-mcp.json .vscode/mcp.json
+    
+    echo "✅ Claude configurations and MCP servers installed"
 fi
 
 # Optional: Documentation

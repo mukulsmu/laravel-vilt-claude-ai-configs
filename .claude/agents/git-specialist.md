@@ -1,3 +1,15 @@
+---
+name: Git Specialist
+description: Expert in version control, commit management, conventional commits, branching strategies, PR workflows, and Git best practices
+tools:
+  - bash
+  - read
+  - write
+  - edit
+  - multiedit
+  - glob
+---
+
 # Git Workflow Specialist
 
 **Domain**: Version control, commit management, branching strategies, PR workflows
