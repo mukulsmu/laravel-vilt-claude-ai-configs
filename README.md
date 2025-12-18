@@ -81,43 +81,63 @@ php artisan boost:install
 
 # This creates:
 # - .github/copilot-instructions.md (base Copilot config)
-# - .claude/config.json (base Claude config)
-# - MCP server configurations
+# - .claude/mcp-config.json (base Claude MCP config)
+# - Laravel Boost MCP server
 ```
 
-### Option A: Both Tools (Recommended) ⭐
+📖 **[Laravel Boost Integration Guide](docs/setup/laravel-boost-integration.md)** - Understanding what Boost creates
+
+### Option A: Automated Installation (Recommended) ⭐
+
+Use our installation script that safely merges with Laravel Boost:
+
+```bash
+cd your-laravel-project
+
+# Download and run installation script
+curl -o install.sh https://raw.githubusercontent.com/mukulsmu/laravel-vilt-claude-ai-configs/main/install.sh
+chmod +x install.sh
+./install.sh
+
+# The script will:
+# - Check for Laravel Boost (offer to install if missing)
+# - APPEND our VILT enhancements to Boost's base config
+# - Copy additional files without conflicts
+# - Optionally install documentation
+```
+
+### Option B: Manual Installation
 
 ```bash
 # After Laravel Boost is installed, add our enhanced configurations
 git clone https://github.com/mukulsmu/laravel-vilt-claude-ai-configs.git .ai-config
 
-# IMPORTANT: Merge (don't overwrite) GitHub Copilot config
-# Laravel Boost creates base .github/copilot-instructions.md
-# Our toolkit enhances it with VILT-specific patterns
+# IMPORTANT: APPEND (don't overwrite) to Laravel Boost's base config
+# Our .github/copilot-instructions.md includes a header explaining this
 cat .ai-config/.github/copilot-instructions.md >> .github/copilot-instructions.md
 
-# Copy additional configurations
-cp -r .ai-config/.github/instructions ./github/  # Path-scoped rules
-cp -r .ai-config/.github/agents ./.github/       # Custom agents
-cp -r .ai-config/.github/skills ./.github/       # Agent skills
+# Copy additional configurations (these don't exist in Laravel Boost)
+cp -r .ai-config/.github/instructions ./.github/  # Path-scoped rules
+cp -r .ai-config/.github/agents ./.github/        # Custom agents
+cp -r .ai-config/.github/skills ./.github/        # Agent skills
+cp .ai-config/AGENTS.md ./                        # Coding Agent instructions
 
-# Claude configurations (merge with Boost's base config)
-cp -r .ai-config/.claude/agents ./.claude/       # Specialist agents
-cat .ai-config/CLAUDE.md >> CLAUDE.md            # Enhanced instructions
+# Optional: Claude configurations
+cp -r .ai-config/.claude/agents ./.claude/        # Specialist agents
 
-# Copy VILT-specific documentation
+# Optional: Documentation
 cp -r .ai-config/docs ./
-cp .ai-config/AGENTS.md ./
 
 # Clean up
 rm -rf .ai-config
 
-# Install Claude Code CLI
+# Optional: Install Claude Code CLI
 npm install -g @anthropic/claude-code
 claude auth login
 ```
 
-📖 **[Complete Setup Guide](DUAL-SETUP.md)** - Detailed instructions for both tools
+📖 **[Complete Installation Guide](docs/setup/INSTALLATION.md)** - Step-by-step with troubleshooting
+📖 **[Laravel Boost Integration](docs/setup/laravel-boost-integration.md)** - Understanding file conflicts
 
 ### Option B: GitHub Copilot Pro Only
 
