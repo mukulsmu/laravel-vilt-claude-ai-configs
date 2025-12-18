@@ -16,13 +16,16 @@ Supercharge your Laravel VILT (Vue, Inertia.js, Laravel, Tailwind CSS) stack dev
 | **Workflows & Skills** | `docs/workflows/` | `.github/skills/` |
 | **Free Requests** | N/A (API credits) | Unlimited completions & chat |
 | **Premium Models** | Claude Sonnet/Opus | Claude Sonnet, Gemini Pro, GPT-4o |
-| **Complex Multi-File** | ✅ Native | ✅ Via premium requests |
-| **MCP Servers** | ✅ Full support | ❌ Not available |
+| **Multi-File Edits** | ✅ Native | ✅ Copilot Edits (VS Code) |
+| **Extensibility** | MCP Servers | GitHub Copilot Extensions |
+| **Autonomous Coding** | ✅ Full workflows | ✅ Coding Agent (Enterprise) |
 
 **Use both together** for maximum productivity:
 - **Copilot Free**: Quick completions, documentation, simple tasks
-- **Copilot Premium**: Complex features using Claude/Gemini models
-- **Claude Code**: MCP-enhanced analysis, security audits, long workflows
+- **Copilot Edits**: Multi-file refactoring and code changes (VS Code)
+- **Copilot Premium**: Complex features using Claude Sonnet/Gemini/GPT-4o
+- **Copilot Extensions**: Third-party integrations (Azure, DataStax, Docker, etc.)
+- **Claude Code**: MCP server integration, systematic workflows, deep analysis
 
 📖 **[Complete Dual Setup Guide](DUAL-SETUP.md)** - Optimize free vs premium requests
 
@@ -44,12 +47,21 @@ Pre-configured domain experts for Laravel development:
 - **Debugging & Investigation** - Systematic problem-solving methodologies
 - **Performance Optimization** - Analysis and optimization strategies
 
-### 🛠️ **MCP Server Integration** (Claude)
-Enhanced capabilities through official MCP servers:
+### 🛠️ **Tool Extensibility**
+
+**Claude Code - MCP Server Integration:**
+Enhanced capabilities through Model Context Protocol servers:
 - **[Zen](https://github.com/BeehiveInnovations/zen-mcp-server)** - Advanced analysis, multi-model workflows
 - **[Serena](https://github.com/oraios/serena)** - Semantic code analysis and intelligent navigation
 - **[Context7](https://github.com/upstash/context7)** - Up-to-date documentation access
 - **[BrowserMCP](https://browsermcp.io)** - Real-time browser automation and testing
+
+**GitHub Copilot - Extensions:**
+Third-party integrations through Copilot Extensions:
+- **Azure/GitHub** - Cloud services, repositories, issues
+- **Docker** - Container management
+- **DataStax** - Database operations
+- **Available in VS Code** - Extensions marketplace
 
 ---
 
@@ -133,10 +145,22 @@ rm -rf .ai-config
 "Add PHPDoc to this class"
 ```
 
-### GitHub Copilot - Premium Requests (Claude/Gemini/GPT-4o)
+### GitHub Copilot - Edits (Multi-File Changes)
 
 ```plaintext
-# In Copilot Chat, select Claude/Gemini/GPT-4o from model dropdown:
+# In VS Code, open Copilot Edits panel (Ctrl/Cmd+Shift+I)
+# Works across multiple files simultaneously
+
+"Rename the Post model to Article throughout the codebase"
+"Extract authentication logic from controllers to a service class"
+"Add proper type hints to all controller methods"
+"Refactor all Vue components to use Composition API"
+```
+
+### GitHub Copilot - Premium Models (Chat)
+
+```plaintext
+# In Copilot Chat, select Claude Sonnet/Gemini/GPT-4o from model dropdown:
 "Implement a complete blog feature with model, controller, and Vue pages"
 "Analyze this codebase structure and suggest improvements"
 "Refactor this service following SOLID principles"
@@ -155,12 +179,13 @@ claude "Follow the feature development workflow for user profiles"
 ### Optimal Workflow Strategy
 
 ```plaintext
-┌─────────────────────────────────────────────────────────────┐
-│ 1. START: Copilot Free for scaffolding and boilerplate      │
-│ 2. ESCALATE: Copilot Premium (select model) for complex     │
-│ 3. DEEP ANALYSIS: Claude Code for MCP-based audits          │
-│ 4. REVIEW: Claude Code for comprehensive code review        │
-└─────────────────────────────────────────────────────────────┘
+┌─────────────────────────────────────────────────────────────────┐
+│ 1. START: Copilot Free for quick completions & simple tasks     │
+│ 2. MULTI-FILE: Copilot Edits for refactoring across files       │
+│ 3. COMPLEX: Copilot Premium (Claude/Gemini) for deep reasoning  │
+│ 4. ANALYSIS: Claude Code with MCP for security/performance      │
+│ 5. REVIEW: Claude Code for comprehensive systematic workflows   │
+└─────────────────────────────────────────────────────────────────┘
 ```
 
 ---
