@@ -400,10 +400,10 @@ Found an issue or have an improvement?
 
 ## 📞 Support
 
-- **Documentation**: Complete guides in `docs/` directory
-- **Claude Help**: Ask Claude for assistance with any development task
-- **Copilot Help**: Use Copilot Chat with project context
-- **MCP Issues**: Check tool-specific guides in `docs/mcp-servers/`
+- **Full Documentation**: Complete guides in `docs/` directory
+- **MCP Servers**: Tool-specific guides in `docs/mcp-servers/`
+- **Claude Assistance**: Ask Claude for help with complex tasks
+- **Copilot Assistance**: Use Copilot Chat with `@workspace` context
 
 ---
 
