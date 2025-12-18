@@ -60,7 +60,7 @@ Pre-configured domain experts for Laravel development:
 
 **Configuration**:
 - **Claude Code**: Add to `claude_desktop_config.json`
-- **GitHub Copilot**: Add to VS Code settings (requires VS Code + Enterprise)
+- **GitHub Copilot**: Add to VS Code settings (automatically configured by Laravel Boost)
 
 📖 **[MCP Setup Guide for Both Tools](docs/mcp-servers/copilot-mcp-setup.md)**
 
@@ -206,7 +206,7 @@ rm -rf .ai-config
 
 ## 💡 **Usage Examples**
 
-### GitHub Copilot Enterprise - Inline Completions
+### GitHub Copilot Pro - Inline Completions
 
 ```plaintext
 # Intelligent completions as you type (Tab to accept)

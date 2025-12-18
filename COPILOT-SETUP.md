@@ -4,11 +4,26 @@ This guide helps you configure GitHub Copilot for optimal assistance with Larave
 
 ## 📋 Prerequisites
 
-- **GitHub Copilot** subscription (Individual, Business, or Enterprise)
+- **GitHub Copilot Pro** subscription ($10/month for individuals)
 - **VS Code** or **JetBrains IDE** with Copilot extension
-- **Laravel project** (new or existing)
+- **Laravel Boost** installed in your project (REQUIRED - install first)
+- **Laravel project** with VILT stack
 
 ## 🚀 Quick Setup
+
+### 0. Install Laravel Boost FIRST (Required)
+
+Laravel Boost must be installed before adding our toolkit:
+
+```bash
+cd your-laravel-project
+
+# Install Laravel Boost
+composer require laravel/boost
+php artisan boost:install
+
+# This creates base MCP configuration for Copilot
+```
 
 ### 1. Install GitHub Copilot Extension
 
@@ -22,24 +37,27 @@ code --install-extension GitHub.copilot-chat
 **JetBrains IDEs:**
 - Settings → Plugins → Search "GitHub Copilot" → Install
 
-### 2. Add VILT Configuration to Your Project
+### 2. Add VILT-Enhanced Configuration
+
+After Laravel Boost is installed, add our VILT-specific enhancements:
 
 ```bash
-# Navigate to your Laravel project
-cd your-laravel-project
-
 # Clone this configuration repository
 git clone https://github.com/mukulsmu/laravel-vilt-claude-ai-configs.git .ai-config
 
-# Copy GitHub Copilot configurations
-cp -r .ai-config/.github ./
+# MERGE with Laravel Boost's base configuration (don't overwrite)
+cat .ai-config/.github/copilot-instructions.md >> .github/copilot-instructions.md
+
+# Add VILT-specific patterns and agents
+cp -r .ai-config/.github/instructions ./.github/
+cp -r .ai-config/.github/agents ./.github/
+cp -r .ai-config/.github/skills ./.github/
 
 # Copy AGENTS.md for Copilot Coding Agent
 cp .ai-config/AGENTS.md ./
 
 # Optional: Copy full documentation
 cp -r .ai-config/docs ./
-cp .ai-config/CLAUDE.md ./
 
 # Clean up
 rm -rf .ai-config
@@ -47,12 +65,12 @@ rm -rf .ai-config
 
 ### 3. Your Project Structure
 
-After setup, your project should include:
+After Laravel Boost + our toolkit, your project includes:
 
 ```
 your-laravel-project/
 ├── .github/
-│   ├── copilot-instructions.md          # Global Copilot instructions
+│   ├── copilot-instructions.md          # Laravel Boost base + VILT enhancements
 │   ├── instructions/
 │   │   ├── laravel.instructions.md      # PHP/Laravel specific rules
 │   │   ├── vue-inertia.instructions.md  # Vue/Inertia specific rules
@@ -318,19 +336,36 @@ While Claude Code uses MCP servers, Copilot uses Extensions. Here's how they com
 
 **Key Insight**: Copilot's deep framework knowledge often eliminates the need for specialized extensions for common Laravel/Vue tasks.
 
-## 🤖 Copilot Coding Agent (Enterprise Feature)
+## 🤖 Copilot Coding Agent
 
-If you have GitHub Copilot Enterprise, the Coding Agent can:
+GitHub Copilot Pro includes the Coding Agent for autonomous multi-file development:
 
-1. **Create PRs from issues**: "Fix issue #123"
-2. **Multi-file changes**: "Add user profile feature"
-3. **Follow project patterns**: Uses AGENTS.md for guidance
+1. **Autonomous coding**: "Implement complete blog feature"
+2. **Multi-file changes**: "Add user profile system"
+3. **Follow project patterns**: Uses AGENTS.md + Laravel Boost configuration
 
-### Enabling Coding Agent
+### Using Coding Agent
 
-1. Ensure AGENTS.md is in your repository root
-2. Use `@github` in Copilot Chat for agentic tasks
-3. Review generated PRs before merging
+1. Ensure AGENTS.md is in your repository root (included in our toolkit)
+2. Laravel Boost MCP servers are automatically available
+3. Use natural language prompts in Copilot Chat
+4. Agent uses MCP tools (@herd, @boost) automatically
+
+**Example:**
+```plaintext
+"Create a Comment system with:
+- Model with relationships to Post and User
+- CRUD controller with Inertia responses
+- Vue pages for listing and creating comments
+- Authorization policies
+- Comprehensive tests"
+```
+
+The Agent will:
+- Use @herd to check server status
+- Use @boost to generate models/controllers
+- Create Vue components following VILT patterns
+- Generate tests automatically
 
 ## 🔧 IDE Configuration
 
@@ -422,9 +457,9 @@ applyTo: "app/Http/Controllers/Api/**/*.php"
 
 ### Agent Not Available
 
-- Copilot Coding Agent requires GitHub Copilot Enterprise
-- Ensure repository has proper permissions
+- Ensure you have GitHub Copilot Pro subscription
 - Check AGENTS.md is in repository root
+- Verify Laravel Boost MCP configuration is present
 
 ## 📚 Additional Resources
 
