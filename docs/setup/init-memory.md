@@ -18,16 +18,37 @@ This information determines which code examples, patterns, and tools the AI uses
 Run this command once in your project to create the context memory:
 
 ```
-Analyze `composer.json`, `package.json`, and `vite.config.js`. Based on this, write a memory named 'project_context' containing:
+Analyze `composer.json`, `package.json`, and `vite.config.js`.
 
-1. **Stack**: (e.g., VILT / TALL / API / Hybrid)
-2. **Routing**: (Wayfinder or Ziggy)
-3. **Admin**: (Filament, Nova, or None)
-4. **Auth**: (Jetstream, Breeze, or Custom)
-5. **UI Lib**: (shadcn-vue, Tailwind UI, headless, etc.)
-6. **Additional Notes**: Any other important context
+Based on your analysis, create a persistent memory file named 'project_context' using the appropriate memory tool. The content MUST follow this structured format:
 
-Format the memory as structured key-value pairs.
+# Project Context
+
+## Architecture
+- **Stack**: (VILT / TALL / API / Hybrid)
+- **Framework**: Laravel [Version]
+- **Frontend**: Vue [Version] with Inertia.js
+
+## Routing Strategy
+- **System**: (Wayfinder / Ziggy)
+- **Status**: (Strict / Hybrid)
+- **Note**: If Wayfinder is present, forbid Ziggy usage unless legacy code exists.
+
+## Admin Panel
+- **System**: (Filament / Nova / None)
+- **Version**: [Version if applicable]
+- **Resource Path**: (e.g., app/Filament/Resources or app/Nova)
+
+## Authentication
+- **System**: (Jetstream / Breeze / Custom)
+- **Features**: (Teams / 2FA / API tokens)
+
+## UI Library
+- **System**: (shadcn-vue / Tailwind UI / headless / custom)
+- **Path**: resources/js/Components/ui (if applicable)
+
+## Additional Notes
+- Any other important context about the project architecture
 ```
 
 ## Expected Output Example
@@ -35,13 +56,35 @@ Format the memory as structured key-value pairs.
 The AI should create a memory like this:
 
 ```
-project_context:
-- Stack: VILT (Vue 3, Inertia.js, Laravel 12, Tailwind CSS)
-- Routing: Wayfinder (type-safe routes)
-- Admin: Filament 3.x
-- Auth: Laravel Breeze with Inertia
-- UI Lib: shadcn-vue
-- Additional Notes: Using Laravel Herd for development, Pest for testing
+# Project Context
+
+## Architecture
+- **Stack**: VILT (Vue 3, Inertia.js, Laravel 12, Tailwind CSS)
+- **Framework**: Laravel 12.x
+- **Frontend**: Vue 3.5 with Inertia.js 2.x
+
+## Routing Strategy
+- **System**: Wayfinder
+- **Status**: Strict (type-safe routes only)
+- **Note**: Ziggy usage forbidden - Wayfinder provides full type safety
+
+## Admin Panel
+- **System**: Filament
+- **Version**: 3.x
+- **Resource Path**: app/Filament/Resources
+
+## Authentication
+- **System**: Laravel Breeze
+- **Features**: Inertia-based, email verification
+
+## UI Library
+- **System**: shadcn-vue
+- **Path**: resources/js/Components/ui
+
+## Additional Notes
+- Using Laravel Herd for development
+- Pest for PHP testing, Vitest for Vue testing
+- TypeScript throughout the frontend
 ```
 
 ## Verification

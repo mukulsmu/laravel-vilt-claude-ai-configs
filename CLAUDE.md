@@ -1,6 +1,25 @@
-# CLAUDE.md - Laravel VILT Stack AI-Assisted Development Guidelines
+# CLAUDE.md - Laravel VILT Stack AI Controller
 
-This document provides essential context and quick reference for AI-assisted development in Laravel VILT stack applications.
+**Core Stack**: Laravel 12, Vue 3, Inertia.js, Tailwind CSS, TypeScript  
+**Environment**: Laravel Herd, Vite, Pest, Vitest  
+**Routing**: Wayfinder (Primary) / Ziggy (Legacy)
+
+---
+
+## 🧠 Memory First Protocol (CRITICAL)
+
+**DO NOT** scan the file system to understand the project structure.
+
+### Step 1: Read Memory
+```bash
+mcp__serena__read_memory "project_context"
+```
+
+### Missing Memory?
+If the memory does not exist, **STOP** and ask the user to run:
+```bash
+"Read docs/setup/init-memory.md and follow the initialization steps"
+```
 
 ---
 
@@ -11,7 +30,48 @@ This document provides essential context and quick reference for AI-assisted dev
 
 2.  **Example Retrieval Rule**: If you need syntax examples for components, forms, or other patterns, **DO NOT HALLUCINATE**. Read the relevant file in the `.claude/examples/` directory first. These are your reference libraries.
 
-3.  **Log Safety**: **ALWAYS** limit log retrieval to 20 lines. There are no exceptions to this rule. This prevents context window overflow and keeps the focus on the most recent, relevant information.
+3.  **Log Safety Rule**: **ALWAYS** limit log retrieval to 20 lines. There are no exceptions to this rule. This prevents context window overflow and keeps the focus on the most recent, relevant information.
+    - ❌ `mcp__boost__get_laravel_logs` (unbounded)
+    - ✅ `mcp__boost__get_laravel_logs --lines=20 --level=error`
+
+4.  **Symbolic Exploration**: **NEVER** read full files to "look around".
+    - ✅ Use `mcp__serena__get_symbols_overview` or `mcp__serena__find_symbol`
+    - ❌ Don't use `read_file` for exploration
+
+5.  **Targeted Editing**: Prefer `mcp__serena__replace_symbol_body` over rewriting full files when possible.
+
+---
+
+## 🏗️ Development Standards (Strict Enforcement)
+
+### 1. Routing Strategy
+- **Wayfinder** (`@wayfinder/routes`): **DEFAULT**. Use type-safe imports.
+- **Ziggy**: **LEGACY ONLY**. Do not use unless `project_context` explicitly confirms `Routing: Ziggy`.
+
+### 2. Frontend Architecture (shadcn-vue)
+- **Location**: `resources/js/Components/ui/`
+- **Usage**: `import { Button } from '@/Components/ui/button'`
+- **Constraint**: Do not create raw Tailwind buttons. If a component is missing, tell the user to run:
+  ```bash
+  npx shadcn-vue@latest add [component]
+  ```
+
+### 3. Admin Panels (Filament/Nova)
+- **Constraint**: Do not generate custom Livewire admin tables.
+- **Action**: Check `project_context`. If `Admin: Filament` or `Admin: Nova`, delegate to the Admin Specialist agent.
+
+---
+
+## 🤖 Workflow Triggers
+
+| Intent | Action / Command |
+|--------|------------------|
+| **New Feature** | `mcp__serena__read_memory "project_context"` → Plan → Implement |
+| **Debug Issue** | `mcp__boost__get_laravel_logs --lines=20` → `mcp__zen__debug` |
+| **Frontend Dev** | Activate VILT Specialist: "Read `.claude/examples/vilt-examples.md` first." |
+| **Admin Dev** | Activate Admin Specialist: "Read `.claude/examples/[type]-examples.md` first." |
+
+---
 
 ## **🚀 Development Environment**
 
