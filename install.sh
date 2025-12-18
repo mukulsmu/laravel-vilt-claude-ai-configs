@@ -93,17 +93,23 @@ if [ "$install_claude" = "y" ]; then
     # Install MCP configurations
     echo "📡 Installing MCP configurations..."
     
+    # Get absolute project path
+    PROJECT_PATH=$(pwd)
+    
     # Create .vscode directory if needed
     mkdir -p .vscode
     
-    # Handle .mcp.json (Claude Desktop)
+    # Handle .mcp.json (Claude Desktop) - needs absolute paths
     if [ -f ".mcp.json" ]; then
         echo "   Existing .mcp.json found (backing up as .mcp.json.backup)"
         mv .mcp.json .mcp.json.backup
     fi
     cp .ai-config/templates/.mcp.json ./
+    # Replace placeholder with actual project path
+    sed -i.bak "s|PROJECT_PATH_PLACEHOLDER|$PROJECT_PATH|g" .mcp.json
+    rm .mcp.json.bak
     
-    # Handle .vscode/mcp.json (GitHub Copilot in VS Code)
+    # Handle .vscode/mcp.json (GitHub Copilot in VS Code) - can use ${workspaceFolder}
     if [ -f ".vscode/mcp.json" ]; then
         echo "   Existing .vscode/mcp.json found (backing up as .vscode/mcp.json.backup)"
         mv .vscode/mcp.json .vscode/mcp.json.backup

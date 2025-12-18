@@ -13,7 +13,7 @@
         "/Applications/Herd.app/Contents/Resources/herd-mcp.phar"
       ],
       "env": {
-        "SITE_PATH": "${workspaceFolder}"
+        "SITE_PATH": "PROJECT_PATH_PLACEHOLDER"
       }
     },
     "oraios/serena": {
@@ -27,7 +27,7 @@
         "--context",
         "ide",
         "--project",
-        "${workspaceFolder}",
+        "PROJECT_PATH_PLACEHOLDER",
         "--filter-tools",
         "read_file,write_file,replace_in_file,search_for_pattern,list_dir,create_directory,find_symbol_definition,find_referencing_symbols,read_memory,write_memory,search_memory"
       ]
