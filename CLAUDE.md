@@ -2,6 +2,17 @@
 
 This document provides essential context and quick reference for AI-assisted development in Laravel VILT stack applications.
 
+---
+
+## ⚡ Core Workflow Rules (The "Hybrid Paradigm")
+
+1.  **Memory First Rule**: **ALWAYS** check for a `project_context` memory before starting any task. This memory contains the foundational DNA of the project (stack, admin panel, etc.) and dictates which tools and patterns to use.
+    - `mcp__serena__read_memory 'project_context'`
+
+2.  **Example Retrieval Rule**: If you need syntax examples for components, forms, or other patterns, **DO NOT HALLUCINATE**. Read the relevant file in the `.claude/examples/` directory first. These are your reference libraries.
+
+3.  **Log Safety**: **ALWAYS** limit log retrieval to 20 lines. There are no exceptions to this rule. This prevents context window overflow and keeps the focus on the most recent, relevant information.
+
 ## **🚀 Development Environment**
 
 **Laravel Herd** is used for native PHP development environment. Commands run directly:
@@ -209,11 +220,18 @@ git add -A && git commit -m "[action]: [description]"
 
 ### 🤖 AI Agent Specialists
 **Consult when:** Need domain expertise for complex tasks, specialized knowledge required
+- **[VILT Stack Specialist](.claude/agents/vilt-specialist.md)** - Enforces Vue 3, Inertia.js, and shadcn-vue patterns.
+- **[Admin Specialist](.claude/agents/admin-specialist.md)** - Handles logic for Filament and Nova admin panels.
 - **[DevOps Specialist](.claude/agents/devops-specialist.md)** - Laravel Herd, deployment, infrastructure management
 - **[Testing Specialist](.claude/agents/testing-specialist.md)** - Comprehensive testing strategies & QA processes
 - **[Security Specialist](.claude/agents/security-specialist.md)** - Security audits, vulnerability assessments
 - **[Performance Specialist](.claude/agents/performance-specialist.md)** - Performance optimization & database tuning
-- **[VILT Stack Specialist](.claude/agents/vilt-specialist.md)** - Vue 3, Inertia.js, Ziggy, frontend patterns
+
+###  উদাহরণ Hybrid Agent Examples
+**Consult when:** You need boilerplate or syntax examples for common patterns.
+- **[VILT Examples](.claude/examples/vilt-examples.md)** - Code patterns for Wayfinder, `useForm`, and shadcn-vue.
+- **[Filament Examples](.claude/examples/filament-examples.md)** - Boilerplate for Filament Resources, Forms, and Tables.
+- **[Nova Examples](.claude/examples/nova-examples.md)** - Boilerplate for Nova Resources and Actions.
 
 ### 🔧 MCP Server Tools
 **Consult when:** Need to understand tool capabilities, optimize tool usage, troubleshoot MCP issues
