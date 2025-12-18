@@ -216,8 +216,9 @@ claude "Follow the feature development workflow for user profiles"
 ├── .claude/                    # Claude Code configurations
 │   └── agents/                 # Claude specialist agents
 ├── docs/                       # Full documentation
+│   ├── copilot-extensions/     # Copilot Extensions guides
 │   ├── workflows/              # Development workflows
-│   ├── mcp-servers/            # MCP server guides
+│   ├── mcp-servers/            # MCP server guides (Claude)
 │   └── reference/              # Code conventions
 ├── AGENTS.md                   # Copilot Coding Agent instructions
 ├── CLAUDE.md                   # Claude Code instructions
@@ -237,6 +238,8 @@ claude "Follow the feature development workflow for user profiles"
 | [SETUP.md](SETUP.md) | Claude Code installation and MCP servers |
 | [CLAUDE.md](CLAUDE.md) | Claude AI development guidelines |
 | [AGENTS.md](AGENTS.md) | Copilot Coding Agent instructions |
+| [docs/copilot-extensions/](docs/copilot-extensions/) | **GitHub Copilot Extensions guide** |
+| [docs/mcp-servers/](docs/mcp-servers/) | Claude MCP server guides |
 | [docs/workflows/](docs/workflows/) | Step-by-step development processes |
 | [docs/reference/](docs/reference/) | Code conventions and patterns |
 | [MIGRATION.md](MIGRATION.md) | TALL → VILT stack migration guide |
