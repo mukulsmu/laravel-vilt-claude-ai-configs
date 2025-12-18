@@ -8,21 +8,25 @@ Supercharge your Laravel VILT (Vue, Inertia.js, Laravel, Tailwind CSS) stack dev
 
 ## 🎯 **Supports Both AI Coding Agents**
 
-| Feature | Claude Code | GitHub Copilot |
+| Feature | Claude Code (Paid) | GitHub Copilot Pro |
 |---------|-------------|----------------|
 | **Configuration File** | `CLAUDE.md` | `.github/copilot-instructions.md` |
 | **Specialist Agents** | `.claude/agents/` | `AGENTS.md` + `.github/agents/` |
-| **Path-Scoped Rules** | Per-agent configs | `.github/instructions/` |
+| **Path-Scoped Rules** | `.claude/instructions/` | `.github/instructions/` |
 | **Workflows & Skills** | `docs/workflows/` | `.github/skills/` |
-| **Free Requests** | N/A (API credits) | Unlimited completions & chat |
+| **Pricing** | API usage-based | Monthly Pro subscription |
 | **Premium Models** | Claude Sonnet/Opus | Claude Sonnet, Gemini Pro, GPT-4o |
-| **Complex Multi-File** | ✅ Native | ✅ Via premium requests |
-| **MCP Servers** | ✅ Full support | ❌ Not available |
+| **MCP Servers** | ✅ Full support | ✅ Full support (VS Code) |
+| **Coding Agent** | ✅ CLI workflows | ✅ Autonomous coding |
+| **Best For** | Terminal workflows, MCP tools | IDE integration, team collaboration |
 
-**Use both together** for maximum productivity:
-- **Copilot Free**: Quick completions, documentation, simple tasks
-- **Copilot Premium**: Complex features using Claude/Gemini models
-- **Claude Code**: MCP-enhanced analysis, security audits, long workflows
+**Professional Setup** for serious Laravel VILT development:
+- **GitHub Copilot Pro**: Coding Agent with MCP servers and premium models
+- **Laravel Boost**: Must be installed FIRST (provides AI-ready Laravel project setup)
+- **MCP Integration**: Laravel Herd + Laravel Boost MCP servers
+- **Premium Models**: Claude Sonnet for complex reasoning tasks
+- **Claude Code**: Advanced MCP workflows and systematic analysis
+- **Both Tools**: Maximum flexibility and capability
 
 📖 **[Complete Dual Setup Guide](DUAL-SETUP.md)** - Optimize free vs premium requests
 
@@ -44,48 +48,148 @@ Pre-configured domain experts for Laravel development:
 - **Debugging & Investigation** - Systematic problem-solving methodologies
 - **Performance Optimization** - Analysis and optimization strategies
 
-### 🛠️ **MCP Server Integration** (Claude)
-Enhanced capabilities through official MCP servers:
-- **[Zen](https://github.com/BeehiveInnovations/zen-mcp-server)** - Advanced analysis, multi-model workflows
+### 🛠️ **MCP Server Integration** (Both Tools Support MCP)
+
+**Shared MCP Servers** for Laravel VILT development:
+- **[Laravel Herd](docs/mcp-servers/laravel-herd-guide.md)** - Local PHP development server management
+- **[Laravel Boost](docs/mcp-servers/laravel-boost-guide.md)** - Laravel code generation and scaffolding
+- **[Zen](https://github.com/BeehiveInnovations/zen-mcp-server)** - Advanced analysis, multi-model workflows  
 - **[Serena](https://github.com/oraios/serena)** - Semantic code analysis and intelligent navigation
 - **[Context7](https://github.com/upstash/context7)** - Up-to-date documentation access
 - **[BrowserMCP](https://browsermcp.io)** - Real-time browser automation and testing
+
+**Configuration**:
+- **Claude Code**: Add to `claude_desktop_config.json`
+- **GitHub Copilot**: Add to VS Code settings (automatically configured by Laravel Boost)
+
+📖 **[MCP Setup Guide for Both Tools](docs/mcp-servers/copilot-mcp-setup.md)**
 
 ---
 
 ## 🚀 **Quick Start**
 
-### Option A: Both Tools (Recommended) ⭐
+### Prerequisites
+
+**Install Laravel Boost FIRST** - It provides AI-ready configuration for both Claude and Copilot:
 
 ```bash
 cd your-laravel-project
 
-# Clone configuration repository
+# Install Laravel Boost (required)
+composer require laravel/boost
+php artisan boost:install
+
+# This creates:
+# - .github/copilot-instructions.md (base Copilot config)
+# - .claude/mcp-config.json (base Claude MCP config)
+# - Laravel Boost MCP server
+```
+
+📖 **[Laravel Boost Integration Guide](docs/setup/laravel-boost-integration.md)** - Understanding what Boost creates
+
+### Option A: Automated Installation (Recommended) ⭐
+
+Use our installation script for quick setup:
+
+```bash
+cd your-laravel-project
+
+# Download and run installation script
+curl -o install.sh https://raw.githubusercontent.com/mukulsmu/laravel-vilt-claude-ai-configs/main/install.sh
+chmod +x install.sh
+./install.sh
+
+# The script will:
+# - Check for Laravel Boost (offer to install if missing)
+# - Copy our VILT configurations
+# - Set up path-scoped instructions
+# - Optionally install documentation
+```
+
+### Option B: Manual Installation
+
+```bash
+# After Laravel Boost is installed, add our VILT configurations
 git clone https://github.com/mukulsmu/laravel-vilt-claude-ai-configs.git .ai-config
 
-# Copy ALL configurations
-cp -r .ai-config/.github ./      # GitHub Copilot
-cp -r .ai-config/.claude ./      # Claude agents
-cp -r .ai-config/docs ./         # Documentation
-cp .ai-config/CLAUDE.md ./       # Claude instructions
-cp .ai-config/AGENTS.md ./       # Copilot Coding Agent
+# Copy all configurations (no merging needed - we use path-scoped instructions)
+cp .ai-config/.github/copilot-instructions.md ./.github/  # VILT-specific instructions
+cp -r .ai-config/.github/instructions ./.github/          # Path-scoped rules
+cp -r .ai-config/.github/agents ./.github/                # Custom agents
+cp -r .ai-config/.github/skills ./.github/                # Agent skills
+cp .ai-config/AGENTS.md ./                                # Coding Agent instructions
+
+# Claude configurations (if using Claude Code)
+cp .ai-config/CLAUDE.md ./                                # VILT-specific instructions
+cp -r .ai-config/.claude/instructions ./.claude/          # Path-scoped rules (includes Boost reference)
+cp -r .ai-config/.claude/agents ./.claude/                # Specialist agents
+
+# Optional: Documentation
+cp -r .ai-config/docs ./
 
 # Clean up
 rm -rf .ai-config
 
-# Install Claude Code CLI
+# Optional: Install Claude Code CLI
 npm install -g @anthropic/claude-code
 claude auth login
 ```
 
-📖 **[Complete Dual Setup Guide](DUAL-SETUP.md)** - Includes request optimization strategies
+📖 **[Complete Installation Guide](docs/setup/INSTALLATION.md)** - Step-by-step with troubleshooting
+📖 **[Laravel Boost Integration](docs/setup/laravel-boost-integration.md)** - Understanding file conflicts
 
-### Option B: GitHub Copilot Only
+### Option C: GitHub Copilot Pro Only
 
 ```bash
 cd your-laravel-project
 
-# Clone and copy Copilot configurations
+# Install Laravel Boost FIRST (required)
+composer require laravel/boost
+php artisan boost:install
+
+# Then add our VILT configurations
+git clone https://github.com/mukulsmu/laravel-vilt-claude-ai-configs.git .ai-config
+
+# Copy Copilot configurations (no merging needed)
+cp .ai-config/.github/copilot-instructions.md ./.github/
+cp -r .ai-config/.github/instructions ./.github/
+cp -r .ai-config/.github/agents ./.github/
+cp -r .ai-config/.github/skills ./.github/
+cp .ai-config/AGENTS.md ./
+
+# Clean up
+rm -rf .ai-config
+```
+
+Copilot Pro will automatically use both Laravel Boost's base instructions and our VILT enhancements.
+
+📖 **Full guide:** [COPILOT-SETUP.md](COPILOT-SETUP.md)
+
+### Option C: Claude Code Only
+
+```bash
+cd your-laravel-project
+
+# Install Laravel Boost FIRST (required)
+composer require laravel/boost
+php artisan boost:install
+
+# Install Claude Code CLI
+npm install -g @anthropic/claude-code
+claude auth login
+
+# Add our VILT configurations (no merging needed)
+git clone https://github.com/mukulsmu/laravel-vilt-claude-ai-configs.git .ai-config
+cp .ai-config/CLAUDE.md ./                            # VILT-specific instructions
+cp -r .ai-config/.claude/instructions ./.claude/      # Path-scoped rules (includes Boost reference)
+cp -r .ai-config/.claude/agents ./.claude/            # Specialist agents
+cp -r .ai-config/docs ./                              # Documentation
+
+# Clean up
+rm -rf .ai-config
+```
+
+📖 **Full guide:** [SETUP.md](SETUP.md)
 git clone https://github.com/mukulsmu/laravel-vilt-claude-ai-configs.git .ai-config
 cp -r .ai-config/.github ./
 cp .ai-config/AGENTS.md ./
@@ -122,45 +226,71 @@ rm -rf .ai-config
 
 ## 💡 **Usage Examples**
 
-### GitHub Copilot - Free Requests (Unlimited)
+### GitHub Copilot Pro - Inline Completions
 
 ```plaintext
-# Quick completions - just type and Tab
-# Documentation generation
-# Simple refactoring
+# Intelligent completions as you type (Tab to accept)
+# Context-aware suggestions from codebase
 "Create a Post model with migration"
 "Write a test for this method"
 "Add PHPDoc to this class"
 ```
 
-### GitHub Copilot - Premium Requests (Claude/Gemini/GPT-4o)
+### GitHub Copilot - Coding Agent (Autonomous)
 
 ```plaintext
-# In Copilot Chat, select Claude/Gemini/GPT-4o from model dropdown:
-"Implement a complete blog feature with model, controller, and Vue pages"
-"Analyze this codebase structure and suggest improvements"
-"Refactor this service following SOLID principles"
+# Autonomous multi-file coding with full project context
+"Implement a complete blog feature with CRUD operations"
+"Refactor authentication to use a service layer"
+"Add comprehensive tests for the User module"
+"Migrate from Livewire to Inertia.js for all components"
+
+# Agent uses AGENTS.md for project patterns and conventions
 ```
 
-### Claude Code (MCP-Enhanced)
+### GitHub Copilot - MCP Integration (Laravel Focused)
+
+```plaintext
+# With Laravel Herd MCP - Development server management
+@herd "Start the development server on port 8000"
+@herd "Switch PHP version to 8.3"
+@herd "Show database connections"
+
+# With Laravel Boost MCP - Code generation
+@boost "Generate a Post resource with full CRUD"
+@boost "Create Comment model with relationships"
+@boost "Scaffold admin panel for User management"
+
+# With Analysis MCP servers
+@zen "Review this controller for security vulnerabilities"
+@serena "Find all references to this service method"
+@context7 "Get latest Laravel 11 documentation for queues"
+```
+
+### Claude Code - MCP-Enhanced Workflows
 
 ```bash
-# Terminal commands with MCP server integration
+# Terminal-based workflows with MCP servers
+claude "Use mcp__laravel_herd__start to begin development"
+claude "Use mcp__laravel_boost__generate CRUD for Product"
 claude "Use mcp__zen__codereview to analyze security vulnerabilities"
-claude "Security Specialist: Perform complete security audit"
+claude "Security Specialist: Perform complete authentication audit"
 claude "VILT Stack Specialist: Create notification system with real-time updates"
-claude "Follow the feature development workflow for user profiles"
 ```
 
 ### Optimal Workflow Strategy
 
 ```plaintext
-┌─────────────────────────────────────────────────────────────┐
-│ 1. START: Copilot Free for scaffolding and boilerplate      │
-│ 2. ESCALATE: Copilot Premium (select model) for complex     │
-│ 3. DEEP ANALYSIS: Claude Code for MCP-based audits          │
-│ 4. REVIEW: Claude Code for comprehensive code review        │
-└─────────────────────────────────────────────────────────────┘
+┌─────────────────────────────────────────────────────────────────┐
+│ PROFESSIONAL LARAVEL VILT DEVELOPMENT WORKFLOW                  │
+├─────────────────────────────────────────────────────────────────┤
+│ 1. SETUP: Laravel Herd MCP for local development server         │
+│ 2. SCAFFOLD: Laravel Boost MCP for code generation              │
+│ 3. CODE: Copilot Agent for autonomous multi-file implementation │
+│ 4. ANALYZE: MCP servers (Zen, Serena, Context7) for deep review │
+│ 5. REFINE: Premium models (Claude Sonnet) for complex logic     │
+│ 6. WORKFLOW: Claude Code for systematic multi-step processes    │
+└─────────────────────────────────────────────────────────────────┘
 ```
 
 ---
@@ -186,13 +316,18 @@ claude "Follow the feature development workflow for user profiles"
 ├── .github/                    # GitHub Copilot configurations
 │   ├── copilot-instructions.md # Global Copilot instructions
 │   ├── instructions/           # Path-scoped rules
+│   │   └── laravel-boost-base.instructions.md  # Boost reference
 │   ├── agents/                 # Custom Copilot agents
 │   └── skills/                 # Agent skills
 ├── .claude/                    # Claude Code configurations
+│   ├── instructions/           # Path-scoped rules
+│   │   └── laravel-boost-base.instructions.md  # Boost reference
 │   └── agents/                 # Claude specialist agents
 ├── docs/                       # Full documentation
+│   ├── copilot-extensions/     # Copilot Extensions guides
 │   ├── workflows/              # Development workflows
 │   ├── mcp-servers/            # MCP server guides
+│   ├── setup/                  # Installation guides
 │   └── reference/              # Code conventions
 ├── AGENTS.md                   # Copilot Coding Agent instructions
 ├── CLAUDE.md                   # Claude Code instructions
@@ -212,6 +347,8 @@ claude "Follow the feature development workflow for user profiles"
 | [SETUP.md](SETUP.md) | Claude Code installation and MCP servers |
 | [CLAUDE.md](CLAUDE.md) | Claude AI development guidelines |
 | [AGENTS.md](AGENTS.md) | Copilot Coding Agent instructions |
+| [docs/copilot-extensions/](docs/copilot-extensions/) | **GitHub Copilot Extensions guide** |
+| [docs/mcp-servers/](docs/mcp-servers/) | Claude MCP server guides |
 | [docs/workflows/](docs/workflows/) | Step-by-step development processes |
 | [docs/reference/](docs/reference/) | Code conventions and patterns |
 | [MIGRATION.md](MIGRATION.md) | TALL → VILT stack migration guide |

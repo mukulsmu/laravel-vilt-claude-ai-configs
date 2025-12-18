@@ -1,5 +1,19 @@
 # CLAUDE.md - Laravel VILT Stack AI-Assisted Development Guidelines
 
+**Architecture**: This configuration works with Laravel Boost for optimal AI-powered development.
+
+## How This Works
+
+This file provides VILT stack-specific instructions for Claude Code. It works alongside Laravel Boost's base Laravel configuration.
+
+**Laravel Boost Base Instructions**: See [`.claude/instructions/laravel-boost-base.instructions.md`](.claude/instructions/laravel-boost-base.instructions.md) for the base Laravel conventions that Laravel Boost provides. Those instructions are automatically available when Laravel Boost is installed. This file adds VILT-specific enhancements.
+
+**No Merging Required**: Simply copy this file to your project. Claude will reference both this file and the Boost base instructions automatically.
+
+---
+
+# VILT Stack Development Guidelines
+
 This document provides essential context and quick reference for AI-assisted development in Laravel VILT stack applications.
 
 ## **🚀 Development Environment**
