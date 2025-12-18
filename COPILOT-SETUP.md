@@ -193,6 +193,131 @@ and Pest tests for all endpoints"
 
 **Pro Tip**: Start with free requests. If the result isn't satisfactory, switch to a premium model for that specific task.
 
+## ✨ Copilot Edits - Multi-File Editing
+
+**Copilot Edits** allows you to make AI-powered changes across multiple files simultaneously - perfect for refactoring and large-scale code updates.
+
+### Opening Copilot Edits
+
+```bash
+# In VS Code:
+- Press Ctrl/Cmd+Shift+I (or Ctrl/Cmd+I)
+- Or: View → Command Palette → "Copilot: Open Edits"
+- Or: Click Copilot icon in sidebar → "Edits"
+```
+
+### Use Cases
+
+**Renaming Features:**
+```plaintext
+Working Set: Select all related files
+app/Models/Post.php, app/Http/Controllers/PostController.php,
+resources/js/Pages/Posts/*.vue, routes/web.php
+
+Instructions:
+"Rename Post to Article throughout the entire codebase including 
+file names, class names, routes, and all references"
+```
+
+**Refactoring Patterns:**
+```plaintext
+Working Set: app/Http/Controllers/**/*.php
+
+Instructions:
+"Extract authentication logic from all controllers to a new AuthService.
+Update controllers to use dependency injection. Maintain all existing functionality."
+```
+
+**Component Library Migration:**
+```plaintext
+Working Set: resources/js/**/*.vue
+
+Instructions:
+"Migrate all Button components from custom implementation to shadcn-vue.
+Update imports, props, and ensure styling is preserved."
+```
+
+### Best Practices
+
+1. **Start with clear working set** - Select specific files you want to change
+2. **Write detailed instructions** - Be explicit about what changes to make
+3. **Review before applying** - Always check the diff view
+4. **Use version control** - Commit before major refactors
+5. **Break down large changes** - Multiple small edits are better than one massive change
+
+📖 **Full guide**: [docs/copilot-extensions/copilot-edits.md](docs/copilot-extensions/copilot-edits.md)
+
+## 🔌 Copilot Extensions
+
+GitHub Copilot Extensions provide additional capabilities through third-party integrations. While different from Claude's MCP servers, they serve similar purposes.
+
+### Built-in Extensions
+
+**@workspace** - Code navigation and analysis
+```plaintext
+@workspace "Find all controller classes that use Form Requests"
+@workspace "Show Vue components using the useForm composable"
+@workspace "Explain the authentication flow in this project"
+```
+
+**@github** - Repository management
+```plaintext
+@github "Show open issues labeled 'bug'"
+@github "What's the status of PR #42?"
+@github "List recent commits to the main branch"
+```
+
+### Official Extensions
+
+Install from VS Code Marketplace or GitHub:
+
+- **Docker** - Container management and Dockerfile optimization
+- **Azure** - Cloud services and deployment assistance
+- **DataStax** - Database operations and query optimization
+
+### Recommended Laravel Extensions
+
+```bash
+# Laravel-specific tooling
+code --install-extension amiralizadeh9480.laravel-extra-intellisense
+code --install-extension onecentlin.laravel-blade
+
+# Quality tools
+code --install-extension SonarSource.sonarlint-vscode
+
+# Vue/Inertia
+code --install-extension Vue.volar
+```
+
+### Extension Usage
+
+```plaintext
+# Ask about cloud resources
+@azure "List my deployed Laravel apps"
+
+# Container optimization
+@docker "Optimize this Dockerfile for production Laravel"
+
+# Database help
+@datastax "Review this migration for performance issues"
+```
+
+📖 **Full guide**: [docs/copilot-extensions/](docs/copilot-extensions/)
+
+### MCP vs Extensions Comparison
+
+While Claude Code uses MCP servers, Copilot uses Extensions. Here's how they compare:
+
+| Function | Claude MCP | Copilot Equivalent |
+|----------|------------|-------------------|
+| Code navigation | Serena MCP | `@workspace` + IntelliSense |
+| Documentation | Context7 MCP | Built-in knowledge + Chat |
+| Code review | Zen MCP | Chat analysis + SonarLint |
+| Testing | BrowserMCP | Generate tests + Playwright |
+| Laravel tools | Laravel Herd/Boost MCP | Built-in Laravel knowledge |
+
+**Key Insight**: Copilot's deep framework knowledge often eliminates the need for specialized extensions for common Laravel/Vue tasks.
+
 ## 🤖 Copilot Coding Agent (Enterprise Feature)
 
 If you have GitHub Copilot Enterprise, the Coding Agent can:

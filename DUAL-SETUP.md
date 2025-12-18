@@ -9,15 +9,18 @@ Complete guide for using **both Claude Code and GitHub Copilot** together on the
 | Quick inline completions | Copilot | Free |
 | Code documentation | Copilot | Free |
 | Simple refactoring | Copilot | Free |
-| Complex multi-file changes | Claude Code or Copilot Premium | Premium |
-| Architectural decisions | Claude Code or Copilot Premium | Premium |
-| Long-running multi-task flows | Claude Code or Copilot (Claude/Gemini) | Premium |
-| Security audits | Claude Code (MCP servers) | Premium |
+| Multi-file editing | Copilot Edits | Free |
+| Code navigation | Copilot @workspace | Free |
+| Complex logic | Copilot Premium (Claude/Gemini) | Premium |
+| Architectural decisions | Copilot Premium or Claude Code | Premium |
+| MCP server integrations | Claude Code only | Premium |
+| Security audits | Claude Code (Zen MCP) | Premium |
 | Performance analysis | Claude Code (MCP servers) | Premium |
 
-**Key Insight**: Both tools now support premium models for complex tasks:
-- **Claude Code**: Uses Claude Sonnet/Opus via Anthropic API
-- **GitHub Copilot**: Can use Claude Sonnet, Gemini Pro, GPT-4o via premium requests
+**Key Differences**:
+- **Claude Code**: MCP server integration for specialized tools (Zen, Serena, Context7, BrowserMCP)
+- **GitHub Copilot**: Extensions + built-in features (@workspace, Edits, premium models)
+- **Both**: Excellent Laravel/Vue knowledge, premium model access
 
 ---
 
@@ -149,16 +152,25 @@ Both tools read different configuration files and don't interfere with each othe
 
 ## 💰 Optimizing Free vs Premium Requests
 
-### Understanding Request Types
+### Understanding Tools & Request Types
 
-**GitHub Copilot:**
-- **Free requests**: Standard completions, chat, basic suggestions
-- **Premium requests**: Using Claude Sonnet, Gemini Pro, or GPT-4o for complex tasks
-- Premium model selection: In Copilot Chat, use the model picker dropdown or prefix your message
+**GitHub Copilot (Free Features):**
+- Standard completions & chat
+- @workspace for code navigation
+- Copilot Edits for multi-file changes
+- Built-in Extensions (@github)
 
-**Claude Code:**
+**GitHub Copilot (Premium Features):**
+- Claude Sonnet model in chat
+- Gemini Pro model in chat
+- GPT-4o model in chat
+- Third-party Extensions (Docker, Azure, etc.)
+
+**Claude Code (All API-based):**
 - All requests use Anthropic API credits
-- Model selection available (Sonnet for most tasks, Opus for complex)
+- MCP server integration (unique to Claude)
+- Persistent context across sessions
+- Specialized tools (Zen, Serena, Context7, BrowserMCP)
 
 ### The Optimal Workflow Strategy
 
@@ -167,6 +179,13 @@ Both tools read different configuration files and don't interfere with each othe
 ```plaintext
 # Quick completions (just type and Tab)
 function calculate|  → Copilot completes
+
+# Code navigation
+@workspace "Find all service classes"
+
+# Multi-file refactoring  
+# Open Copilot Edits (Ctrl/Cmd+Shift+I)
+"Rename Post model to Article across all files"
 
 # Documentation generation
 "Add PHPDoc to this method"
@@ -267,6 +286,86 @@ claude "Implement user authentication"
 # Or use specialist agents for domain expertise
 claude "Security Specialist: Audit the authentication system"
 ```
+
+---
+
+## 🔌 Extensibility: MCP Servers vs Copilot Extensions
+
+Both tools offer extensibility, but through different mechanisms.
+
+### Claude Code - MCP Servers
+
+**MCP (Model Context Protocol)** provides deep integration with specialized tools:
+
+| MCP Server | Function | Use Case |
+|------------|----------|----------|
+| **Zen** | Advanced analysis, code review, security audits | Quality assurance, systematic workflows |
+| **Serena** | Semantic code navigation, symbol search | Efficient codebase exploration |
+| **Context7** | Up-to-date library documentation | Latest framework best practices |
+| **BrowserMCP** | Browser automation, UI testing | Interactive debugging |
+| **Laravel Herd** | Laravel development server management | Local development workflow |
+
+**Configuration**: `claude_desktop_config.json` or environment variables
+
+**Usage**:
+```bash
+claude "Use mcp__zen__codereview to analyze security"
+claude "Use mcp__serena__get_symbols_overview for app/Services"
+```
+
+### GitHub Copilot - Extensions
+
+**Extensions** integrate third-party services into Copilot Chat:
+
+| Extension | Function | Use Case |
+|-----------|----------|----------|
+| **@workspace** | Code navigation (built-in) | Find classes, understand structure |
+| **@github** | Repository management (built-in) | Issues, PRs, workflows |
+| **@docker** | Container management | Dockerfile optimization |
+| **@azure** | Cloud services | Deployment, monitoring |
+| **SonarLint** | Code quality | Security, bugs, code smells |
+
+**Installation**: VS Code Marketplace or GitHub
+
+**Usage**:
+```plaintext
+@workspace "Find all controller classes"
+@github "Show open issues"
+@docker "Optimize this Dockerfile"
+```
+
+### Copilot's Built-in Equivalents
+
+Many MCP server functions are built into Copilot:
+
+| MCP Function | Copilot Equivalent |
+|--------------|-------------------|
+| Serena symbol search | `@workspace` + IntelliSense |
+| Context7 docs | Built-in training on latest frameworks |
+| Zen code review | Chat analysis + SonarLint |
+| BrowserMCP testing | Generate Playwright/Dusk tests |
+| Laravel Boost | Excellent built-in Laravel knowledge |
+
+### When to Use Which
+
+**Use Claude MCP when you need:**
+- Systematic multi-step workflows (Zen)
+- Token-efficient code navigation (Serena)
+- Real-time browser debugging (BrowserMCP)
+- Specialized analysis tools (Zen security audits)
+
+**Use Copilot Extensions when you need:**
+- Service integrations (Docker, Azure, DataStax)
+- Repository management (@github)
+- Multi-file editing (Copilot Edits)
+- Built-in framework knowledge
+
+**Use Both together:**
+- Copilot for day-to-day coding
+- Claude MCP for specialized analysis
+- Switch based on task requirements
+
+📖 **Full Extensions Guide**: [docs/copilot-extensions/](docs/copilot-extensions/)
 
 ---
 
