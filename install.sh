@@ -70,9 +70,27 @@ echo "📋 Installing Coding Agent instructions..."
 cp .ai-config/AGENTS.md ./
 
 # Optional: Claude configurations
-if [ -d ".claude" ]; then
-    echo "🔮 Enhancing Claude configuration..."
-    cp -r .ai-config/.claude/agents ./.claude/ 2>/dev/null || true
+echo ""
+echo "Install Claude Code configurations? (y/n)"
+read -r install_claude
+
+if [ "$install_claude" = "y" ]; then
+    echo "🔮 Installing Claude configurations..."
+    
+    # Create .claude directory if needed
+    mkdir -p .claude
+    
+    # Handle CLAUDE.md
+    if [ -f "CLAUDE.md" ]; then
+        echo "   Existing CLAUDE.md found (backing up as CLAUDE.md.backup)"
+        mv CLAUDE.md CLAUDE.md.backup
+    fi
+    
+    cp .ai-config/CLAUDE.md ./
+    cp -r .ai-config/.claude/instructions ./.claude/ 2>/dev/null || mkdir -p .claude/instructions && cp -r .ai-config/.claude/instructions ./.claude/
+    cp -r .ai-config/.claude/agents ./.claude/ 2>/dev/null || mkdir -p .claude/agents && cp -r .ai-config/.claude/agents ./.claude/
+    
+    echo "✅ Claude configurations installed"
 fi
 
 # Optional: Documentation

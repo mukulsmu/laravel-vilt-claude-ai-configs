@@ -12,7 +12,7 @@ Supercharge your Laravel VILT (Vue, Inertia.js, Laravel, Tailwind CSS) stack dev
 |---------|-------------|----------------|
 | **Configuration File** | `CLAUDE.md` | `.github/copilot-instructions.md` |
 | **Specialist Agents** | `.claude/agents/` | `AGENTS.md` + `.github/agents/` |
-| **Path-Scoped Rules** | Per-agent configs | `.github/instructions/` |
+| **Path-Scoped Rules** | `.claude/instructions/` | `.github/instructions/` |
 | **Workflows & Skills** | `docs/workflows/` | `.github/skills/` |
 | **Pricing** | API usage-based | Monthly Pro subscription |
 | **Premium Models** | Claude Sonnet/Opus | Claude Sonnet, Gemini Pro, GPT-4o |
@@ -119,7 +119,9 @@ cp -r .ai-config/.github/agents ./.github/                # Custom agents
 cp -r .ai-config/.github/skills ./.github/                # Agent skills
 cp .ai-config/AGENTS.md ./                                # Coding Agent instructions
 
-# Optional: Claude configurations
+# Claude configurations (if using Claude Code)
+cp .ai-config/CLAUDE.md ./                                # VILT-specific instructions
+cp -r .ai-config/.claude/instructions ./.claude/          # Path-scoped rules (includes Boost reference)
 cp -r .ai-config/.claude/agents ./.claude/                # Specialist agents
 
 # Optional: Documentation
@@ -176,11 +178,12 @@ php artisan boost:install
 npm install -g @anthropic/claude-code
 claude auth login
 
-# Add our enhanced configurations
+# Add our VILT configurations (no merging needed)
 git clone https://github.com/mukulsmu/laravel-vilt-claude-ai-configs.git .ai-config
-cp -r .ai-config/.claude/agents ./.claude/
-cat .ai-config/CLAUDE.md >> CLAUDE.md
-cp -r .ai-config/docs ./
+cp .ai-config/CLAUDE.md ./                            # VILT-specific instructions
+cp -r .ai-config/.claude/instructions ./.claude/      # Path-scoped rules (includes Boost reference)
+cp -r .ai-config/.claude/agents ./.claude/            # Specialist agents
+cp -r .ai-config/docs ./                              # Documentation
 
 # Clean up
 rm -rf .ai-config
@@ -313,14 +316,18 @@ claude "VILT Stack Specialist: Create notification system with real-time updates
 ├── .github/                    # GitHub Copilot configurations
 │   ├── copilot-instructions.md # Global Copilot instructions
 │   ├── instructions/           # Path-scoped rules
+│   │   └── laravel-boost-base.instructions.md  # Boost reference
 │   ├── agents/                 # Custom Copilot agents
 │   └── skills/                 # Agent skills
 ├── .claude/                    # Claude Code configurations
+│   ├── instructions/           # Path-scoped rules
+│   │   └── laravel-boost-base.instructions.md  # Boost reference
 │   └── agents/                 # Claude specialist agents
 ├── docs/                       # Full documentation
 │   ├── copilot-extensions/     # Copilot Extensions guides
 │   ├── workflows/              # Development workflows
-│   ├── mcp-servers/            # MCP server guides (Claude)
+│   ├── mcp-servers/            # MCP server guides
+│   ├── setup/                  # Installation guides
 │   └── reference/              # Code conventions
 ├── AGENTS.md                   # Copilot Coding Agent instructions
 ├── CLAUDE.md                   # Claude Code instructions
