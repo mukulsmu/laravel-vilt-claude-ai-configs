@@ -1,12 +1,26 @@
-# Laravel VILT Stack AI Development Starter Kit
+# Laravel VILT Stack AI Development Toolkit
 
-**🚀 Supercharge your Laravel development with AI-powered workflows, specialist agents, and systematic quality assurance.**
+**🚀 The #1 AI-powered development toolkit for Laravel VILT stack developers**
 
-Transform your Laravel VILT (Vue, Inertia.js, Laravel, Tailwind CSS) stack development with comprehensive Claude Code configurations that provide intelligent assistance, systematic workflows, and domain expert consultation.
+Supercharge your Laravel VILT (Vue, Inertia.js, Laravel, Tailwind CSS) stack development with comprehensive configurations for **both Claude Code and GitHub Copilot**. Get intelligent assistance, systematic workflows, and domain expert consultation regardless of your preferred AI coding assistant.
 
 ---
 
-## ✨ What This Starter Kit Provides
+## 🎯 **Supports Both AI Coding Agents**
+
+| Feature | Claude Code | GitHub Copilot |
+|---------|-------------|----------------|
+| **Configuration File** | `CLAUDE.md` | `.github/copilot-instructions.md` |
+| **Specialist Agents** | `.claude/agents/` | `AGENTS.md` + `.github/agents/` |
+| **Path-Scoped Rules** | Per-agent configs | `.github/instructions/` |
+| **Workflows & Skills** | `docs/workflows/` | `.github/skills/` |
+| **Best For** | Deep reasoning, multi-file refactoring, architectural decisions | Quick completions, IDE integration, real-time suggestions |
+
+**Use both together** for maximum productivity: Claude for complex tasks, Copilot for day-to-day coding.
+
+---
+
+## ✨ **What This Toolkit Provides**
 
 ### 🤖 **AI Specialist Agents**
 Pre-configured domain experts for Laravel development:
@@ -14,15 +28,15 @@ Pre-configured domain experts for Laravel development:
 - **🔒 Security Specialist** - Vulnerability assessment, security best practices  
 - **⚡ Performance Specialist** - Database optimization, performance tuning
 - **🧪 Testing Specialist** - Comprehensive testing strategies and QA
-- **🎨 VILT Stack Specialist** - Vue 3, Inertia.js, Ziggy, frontend patterns
+- **🎨 VILT Stack Specialist** - Vue 3, Inertia.js, Ziggy/Wayfinder, frontend patterns
 
-### 📋 **Systematic Development Workflows**
-- **Feature Development** - End-to-end implementation process
+### 📋 **Development Workflows & Skills**
+- **Feature Development** - End-to-end CRUD and feature implementation
 - **Quality Assurance** - Code review, testing, and validation workflows
 - **Debugging & Investigation** - Systematic problem-solving methodologies
 - **Performance Optimization** - Analysis and optimization strategies
 
-### 🛠️ **MCP Server Integration**
+### 🛠️ **MCP Server Integration** (Claude)
 Enhanced capabilities through official MCP servers:
 - **[Zen](https://github.com/BeehiveInnovations/zen-mcp-server)** - Advanced analysis, multi-model workflows
 - **[Serena](https://github.com/oraios/serena)** - Semantic code analysis and intelligent navigation
@@ -33,42 +47,83 @@ Enhanced capabilities through official MCP servers:
 
 ## 🚀 **Quick Start**
 
-### 1. **Install Claude Code**
+### Option A: GitHub Copilot Setup (Fastest)
+
 ```bash
-npm install -g @anthropic/claude-code
-claude auth login
+cd your-laravel-project
+
+# Clone and copy Copilot configurations
+git clone https://github.com/mukulsmu/laravel-vilt-claude-ai-configs.git .ai-config
+cp -r .ai-config/.github ./
+cp .ai-config/AGENTS.md ./
+
+# Clean up
+rm -rf .ai-config
 ```
 
-### 2. **Add to Your Laravel Project**
+That's it! Copilot will automatically use the instructions for better suggestions.
+
+📖 **Full guide:** [COPILOT-SETUP.md](COPILOT-SETUP.md)
+
+### Option B: Claude Code Setup (Full Features)
+
 ```bash
+# Install Claude Code CLI
+npm install -g @anthropic/claude-code
+claude auth login
+
+# Add configurations to your project
 cd your-laravel-project
 git clone https://github.com/mukulsmu/laravel-vilt-claude-ai-configs.git .ai-config
 cp -r .ai-config/.claude ./
 cp -r .ai-config/docs ./
 cp .ai-config/CLAUDE.md ./
+
+# Clean up
+rm -rf .ai-config
 ```
 
-### 3. **Install MCP Servers** (Recommended)
+📖 **Full guide:** [SETUP.md](SETUP.md)
+
+### Option C: Both (Recommended)
+
 ```bash
-# Zen - Advanced analysis workflows
-/path/to/zen-mcp-server/.zen_venv/bin/python /path/to/zen-mcp-server/server.py
+cd your-laravel-project
 
-# Serena - Semantic code analysis  
-uvx --from git+https://github.com/oraios/serena serena start-mcp-server --context ide-assistant --project .
+# Clone configuration repository
+git clone https://github.com/mukulsmu/laravel-vilt-claude-ai-configs.git .ai-config
 
-# Context7 - Documentation access
-# Visit https://mcp.context7.com for SSE setup
+# Copy ALL configurations
+cp -r .ai-config/.github ./      # GitHub Copilot
+cp -r .ai-config/.claude ./      # Claude agents
+cp -r .ai-config/docs ./         # Documentation
+cp .ai-config/CLAUDE.md ./       # Claude instructions
+cp .ai-config/AGENTS.md ./       # Copilot Coding Agent
 
-# BrowserMCP - Browser automation
-npx @browsermcp/mcp@latest
+# Clean up
+rm -rf .ai-config
 ```
 
-### 4. **Start AI-Assisted Development**
+---
+
+## 💡 **Usage Examples**
+
+### With GitHub Copilot
+
+```plaintext
+# In Copilot Chat
+"Create a Post model with migration, controller, and Vue pages"
+"Write Pest tests for the UserController"
+"Add validation to the registration form"
+```
+
+### With Claude Code
+
 ```bash
-claude "Help me understand this Laravel project structure"
+# Terminal
 claude "DevOps Specialist: Configure Laravel Herd for this project"
-claude "Follow the feature development workflow for user authentication"
 claude "VILT Stack Specialist: Create a Vue component with Inertia integration"
+claude "Follow the feature development workflow for user profiles"
 ```
 
 ---
@@ -81,18 +136,58 @@ claude "VILT Stack Specialist: Create a Vue component with Inertia integration"
 - **Vite** - Fast build tool and dev server
 - **Pest/PHPUnit** - PHP testing framework
 - **Vitest** - Vue component testing framework
-- **Ziggy** - Laravel route integration for Vue
+- **Ziggy/Wayfinder** - Laravel route integration for Vue
 - **TypeScript** - Optional type safety (recommended)
+- **shadcn-vue** - Modern component library
 
 ---
 
-## 📚 **Complete Documentation**
+## 📂 **Repository Structure**
 
-- **[SETUP.md](SETUP.md)** - Comprehensive installation and configuration guide
-- **[CLAUDE.md](CLAUDE.md)** - Core AI development guidelines and patterns  
-- **[docs/workflows/](docs/workflows/)** - Step-by-step development processes
-- **[docs/mcp-servers/](docs/mcp-servers/)** - Detailed MCP server usage guides
-- **[docs/reference/](docs/reference/)** - Quick references and best practices
+```
+.
+├── .github/                    # GitHub Copilot configurations
+│   ├── copilot-instructions.md # Global Copilot instructions
+│   ├── instructions/           # Path-scoped rules
+│   ├── agents/                 # Custom Copilot agents
+│   └── skills/                 # Agent skills
+├── .claude/                    # Claude Code configurations
+│   └── agents/                 # Claude specialist agents
+├── docs/                       # Full documentation
+│   ├── workflows/              # Development workflows
+│   ├── mcp-servers/            # MCP server guides
+│   └── reference/              # Code conventions
+├── AGENTS.md                   # Copilot Coding Agent instructions
+├── CLAUDE.md                   # Claude Code instructions
+├── COPILOT-SETUP.md           # GitHub Copilot setup guide
+├── SETUP.md                    # Claude Code setup guide
+└── README.md                   # This file
+```
+
+---
+
+## 📚 **Documentation**
+
+| Document | Purpose |
+|----------|---------|
+| [COPILOT-SETUP.md](COPILOT-SETUP.md) | GitHub Copilot installation and usage |
+| [SETUP.md](SETUP.md) | Claude Code installation and MCP servers |
+| [CLAUDE.md](CLAUDE.md) | Claude AI development guidelines |
+| [AGENTS.md](AGENTS.md) | Copilot Coding Agent instructions |
+| [docs/workflows/](docs/workflows/) | Step-by-step development processes |
+| [docs/reference/](docs/reference/) | Code conventions and patterns |
+| [MIGRATION.md](MIGRATION.md) | TALL → VILT stack migration guide |
+
+---
+
+## 🤝 **Contributing**
+
+Found an issue or have an improvement?
+
+1. Check existing documentation
+2. Follow patterns in existing files
+3. Test with both Claude and Copilot
+4. Submit a PR with examples
 
 ---
 
@@ -102,4 +197,12 @@ MIT License - see [LICENSE](LICENSE) file for details.
 
 ---
 
-*Transform your Laravel VILT stack development workflow with intelligent AI assistance, systematic quality assurance, and domain expert guidance.* 🚀
+## ⭐ **Star This Repo**
+
+If this toolkit helps your Laravel VILT development, please give it a star! It helps others discover it.
+
+---
+
+*Transform your Laravel VILT stack development with AI-powered assistance from your preferred coding agent.* 🚀
+
+**Works with:** Claude Code • GitHub Copilot • VS Code • JetBrains IDEs

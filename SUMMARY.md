@@ -1,6 +1,19 @@
-# VILT Stack Configuration Summary
+# Laravel VILT Stack AI Development Toolkit - Summary
 
-This repository provides comprehensive Claude AI agent configurations and MCP tool integrations for Laravel VILT (Vue, Inertia.js, Laravel, Tailwind CSS) stack development.
+This repository provides comprehensive AI coding agent configurations for Laravel VILT (Vue, Inertia.js, Laravel, Tailwind CSS) stack development, supporting **both Claude Code and GitHub Copilot**.
+
+## 🎯 Dual AI Agent Support
+
+### Claude Code
+- **CLAUDE.md** - Main development guidelines with MCP server integration
+- **.claude/agents/** - Specialist agents for domain expertise
+- **docs/** - Comprehensive workflows, guides, and references
+
+### GitHub Copilot  
+- **.github/copilot-instructions.md** - Repository-wide code generation rules
+- **.github/instructions/** - Path-scoped rules for PHP, Vue, and testing
+- **.github/skills/** - Feature development, testing, and debugging skills
+- **AGENTS.md** - Instructions for Copilot Coding Agent
 
 ## 🎯 What's Included
 
@@ -381,22 +394,32 @@ Found an issue or have an improvement?
 
 1. Check `docs/maintenance/documentation-guidelines.md`
 2. Follow existing patterns
-3. Test with both Starter Kit and Jetstream projects
-4. Submit PR with examples
+3. Test with both Claude Code and GitHub Copilot
+4. Test with both Vue Starter Kit and Jetstream projects
+5. Submit PR with examples
 
 ## 📞 Support
 
 - **Documentation**: Complete guides in `docs/` directory
-- **AI Help**: Ask Claude for assistance with any development task
+- **Claude Help**: Ask Claude for assistance with any development task
+- **Copilot Help**: Use Copilot Chat with project context
 - **MCP Issues**: Check tool-specific guides in `docs/mcp-servers/`
 
 ---
 
 ## Version
 
-**Current Version**: 2.0.0
+**Current Version**: 3.0.0
 
 **Changelog**:
+- 3.0.0: Dual AI Agent Support
+  - Added GitHub Copilot configurations (.github/copilot-instructions.md)
+  - Added path-scoped instructions (.github/instructions/)
+  - Added Copilot Coding Agent support (AGENTS.md)
+  - Added agent skills (.github/skills/)
+  - Added COPILOT-SETUP.md guide
+  - Updated README for dual-agent support
+  - Updated documentation structure
 - 2.0.0: Complete VILT stack refactor
   - Added Vue Starter Kit support
   - Added Wayfinder routing
