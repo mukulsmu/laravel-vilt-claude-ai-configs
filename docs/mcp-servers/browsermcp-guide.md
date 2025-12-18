@@ -1,6 +1,6 @@
 # BrowserMCP Guide
 
-Real-time browser automation and debugging for interactive testing of Laravel TALL stack applications, especially useful for complex Livewire component workflows.
+Real-time browser automation and debugging for interactive testing of Laravel VILT stack applications, especially useful for complex Vue/Inertia component workflows.
 
 ## Overview
 
@@ -63,9 +63,9 @@ mcp__browsermcp__browser_wait 2  # Wait 2 seconds
 
 ## Debugging Workflows
 
-### 1. Livewire Component Debugging
+### 1. Vue Component Debugging
 
-**Scenario**: Debugging a broken create/edit workflow
+**Scenario**: Debugging a broken create/edit workflow with Inertia pages
 
 ```bash
 # Start investigation
@@ -130,14 +130,14 @@ mcp__browsermcp__browser_screenshot
 
 ### 1. Component State Inspection
 
-When debugging Livewire components, use the browser's ability to inspect real DOM state:
+When debugging Vue/Inertia components, use the browser's ability to inspect real DOM state and Vue DevTools data:
 
 ```bash
 # After triggering a component action
 mcp__browsermcp__browser_click "Update Agent" "s2e338"
 mcp__browsermcp__browser_wait 1
 
-# Check console for Livewire errors
+# Check console for Vue/Inertia errors
 mcp__browsermcp__browser_get_console_logs
 
 # Take snapshot to see updated state
@@ -204,7 +204,7 @@ mcp__browsermcp__browser_click "Create Agent" "s1e50"
 mcp__browsermcp__browser_get_console_logs
 
 # Continue zen debugging with concrete evidence
-mcp__zen__debug "findings": "Console shows Livewire component mount error..."
+mcp__zen__debug "findings": "Console shows Vue component mount error..."
 ```
 
 ### Combining with Serena Code Analysis
@@ -242,7 +242,7 @@ mcp__browsermcp__browser_snapshot
 mcp__browsermcp__browser_get_console_logs
 # Look for:
 # - JavaScript errors
-# - Livewire component errors  
+# - Vue component errors  
 # - AJAX/fetch failures
 # - 404/500 responses
 ```
@@ -272,7 +272,7 @@ mcp__browsermcp__browser_screenshot  # After change
 ## Common Use Cases
 
 ### UI Component Development
-- Testing new Livewire components
+- Testing new Vue components
 - Verifying responsive design
 - Validating user interaction flows
 

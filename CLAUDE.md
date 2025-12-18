@@ -1,18 +1,18 @@
-# CLAUDE.md - Laravel TALL Stack AI-Assisted Development Guidelines
+# CLAUDE.md - Laravel VILT Stack AI-Assisted Development Guidelines
 
-This document provides essential context and quick reference for AI-assisted development in Laravel TALL stack applications.
+This document provides essential context and quick reference for AI-assisted development in Laravel VILT stack applications.
 
 ## **🚀 Development Environment**
 
-**Laravel Sail** is used for Docker development. Always prefix commands with `./vendor/bin/sail`:
+**Laravel Herd** is used for native PHP development environment. Commands run directly:
 
 ```bash
 # Essential Commands
-./vendor/bin/sail up -d          # Start environment  
-./vendor/bin/sail down           # Stop environment
-./vendor/bin/sail artisan migrate --seed  # Database setup
-./vendor/bin/sail npm run dev    # Frontend development
-./vendor/bin/sail artisan test   # Run tests
+php artisan migrate --seed  # Database setup
+npm run dev                 # Frontend development (Vite)
+php artisan test           # Run tests
+php artisan serve          # Start development server (if not using Herd)
+npm run build              # Build production assets
 ```
 
 **📖 [Complete Commands Reference](docs/reference/laravel-commands.md)**
@@ -77,19 +77,24 @@ mcp__serena__write_memory "missing_documentation" "Document what needs to be add
 
 ---
 
-## 🏗️ Laravel TALL Stack Architecture Quick Reference
+## 🏗️ Laravel VILT Stack Architecture Quick Reference
 
 ### Core Technology Stack
-- **Laravel 12** + **TALL Stack** (Tailwind, Alpine.js, Laravel, Livewire)
-- **FilamentPHP** - Admin interfaces (optional)
-- **Laravel Sail** - Docker development environment
-- **Pest** - PHP testing framework
+- **Laravel 12** + **VILT Stack** (Vue 3, Inertia.js, Laravel, Tailwind CSS)
+- **Vue 3** - Progressive JavaScript framework with Composition API
+- **Inertia.js** - SPA adapter bridging Laravel and Vue
+- **Ziggy** - Laravel routes in JavaScript
+- **Laravel Herd** - Native PHP development environment
+- **Pest/PHPUnit** - PHP testing framework
+- **Vitest** - Vue component testing framework
 
 ### Key Application Patterns
-- **`app/Livewire/`** - Reactive UI components
+- **`resources/js/Pages/`** - Inertia page components (Vue)
+- **`resources/js/Components/`** - Reusable Vue components
+- **`resources/js/Layouts/`** - Shared layout components
 - **`app/Services/`** - Business logic services  
 - **`app/Models/`** - Eloquent models and relationships
-- **`resources/views/livewire/`** - Livewire component templates
+- **`app/Http/Controllers/`** - Controllers returning Inertia responses
 
 **📖 [Complete Architecture Guide](docs/setup/project-architecture.md)**
 
@@ -119,14 +124,20 @@ mcp__serena__write_memory [pattern_name] [architectural_decisions]
 
 ### Component Architecture Decision Rules
 ```bash
+# Full-page UI with server-side data
+→ Create Inertia Page in resources/js/Pages/
+
+# Reusable UI components
+→ Create Vue Component in resources/js/Components/
+
+# Interactive features with real-time updates
+→ Use Vue 3 Composition API + Laravel Echo
+
+# API endpoints for external integrations
+→ Standard Laravel API controllers with proper validation
+
 # Admin functionality + CRUD operations
-→ Consider FilamentPHP Resource for rapid development
-
-# User-facing + interactive/real-time  
-→ Use Livewire Component
-
-# API endpoints + external integrations
-→ Standard Laravel controllers with proper validation
+→ Consider FilamentPHP or build custom Inertia pages
 ```
 
 ### Sub-Agent Coordination Strategy
@@ -140,10 +151,11 @@ Complex (Multi-system)         → Multi-agent workflow
 Architecture/Performance       → Always use specialist
 
 # Example Delegations
-"DevOps Specialist: Configure Docker services for [feature]"
+"DevOps Specialist: Configure Laravel Herd environment for [feature]"
+"VILT Stack Specialist: Create Vue component with Inertia integration"
 "Testing Specialist: Create comprehensive test suite for [component]"
 "Security Specialist: Audit authentication system for vulnerabilities"
-"Performance Specialist: Optimize database queries in [service]"
+"Performance Specialist: Optimize database queries and Inertia responses"
 ```
 
 **📖 [AI Interaction Patterns](docs/reference/ai-interaction-patterns.md)**
@@ -197,11 +209,11 @@ git add -A && git commit -m "[action]: [description]"
 
 ### 🤖 AI Agent Specialists
 **Consult when:** Need domain expertise for complex tasks, specialized knowledge required
-- **[DevOps Specialist](.claude/agents/devops-specialist.md)** - Docker, Sail, deployment, infrastructure management
+- **[DevOps Specialist](.claude/agents/devops-specialist.md)** - Laravel Herd, deployment, infrastructure management
 - **[Testing Specialist](.claude/agents/testing-specialist.md)** - Comprehensive testing strategies & QA processes
 - **[Security Specialist](.claude/agents/security-specialist.md)** - Security audits, vulnerability assessments
 - **[Performance Specialist](.claude/agents/performance-specialist.md)** - Performance optimization & database tuning
-- **[TALL Stack Specialist](.claude/agents/tall-specialist.md)** - Livewire, Alpine.js, frontend patterns
+- **[VILT Stack Specialist](.claude/agents/vilt-specialist.md)** - Vue 3, Inertia.js, Ziggy, frontend patterns
 
 ### 🔧 MCP Server Tools
 **Consult when:** Need to understand tool capabilities, optimize tool usage, troubleshoot MCP issues
@@ -264,6 +276,6 @@ For [complex_task], delegate to appropriate specialist in .claude/agents/
 
 ---
 
-**Built with ❤️ using Laravel TALL stack and AI-powered development workflows**
+**Built with ❤️ using Laravel VILT stack and AI-powered development workflows**
 
 *For detailed information on any topic, always consult the [docs/](docs/) directory.*

@@ -1,11 +1,12 @@
-# Laravel TALL Stack AI Development Setup Guide
+# Laravel VILT Stack AI Development Setup Guide
 
-Complete technical setup instructions for integrating AI-powered development workflows into your Laravel TALL stack project.
+Complete technical setup instructions for integrating AI-powered development workflows into your Laravel VILT stack project.
 
 ## 📋 Prerequisites
 
-- **Node.js 16+** - For MCP server dependencies  
-- **Python 3.8+** - For Zen MCP server
+- **Node.js 18+** - For Vue 3, Vite, and MCP server dependencies  
+- **PHP 8.2+** - For Laravel 12
+- **Laravel Herd** (macOS/Windows) or Laravel Valet - For local development
 - **Laravel Project** - Existing or new Laravel application
 - **Anthropic API Key** - Get from https://console.anthropic.com/
 
@@ -197,19 +198,20 @@ claude "Use mcp__browsermcp__browser_get_console_logs for JS errors"
 
 ```bash
 # DevOps tasks
-claude "DevOps Specialist: Configure Laravel Sail with Redis and Meilisearch"
+claude "DevOps Specialist: Configure Laravel Herd with multiple PHP versions"
 
 # Security review
 claude "Security Specialist: Review OAuth implementation for vulnerabilities"  
 
 # Performance optimization
-claude "Performance Specialist: Optimize N+1 queries in user dashboard"
+claude "Performance Specialist: Optimize N+1 queries and Inertia responses"
 
 # Testing strategy
 claude "Testing Specialist: Create test plan for payment processing"
 
 # Frontend development
-claude "TALL Stack Specialist: Design file upload component with progress"
+claude "VILT Stack Specialist: Design file upload component with Vue and Inertia"
+claude "VILT Stack Specialist: Implement real-time notifications with Echo"
 ```
 
 ## 🔍 Troubleshooting
@@ -288,6 +290,6 @@ claude "Use Zen consensus with multiple models to evaluate microservices vs mono
 
 ---
 
-**Ready to supercharge your Laravel development with AI assistance!** 🚀
+**Ready to supercharge your Laravel VILT stack development with AI assistance!** 🚀
 
 Start with `claude` in your project directory and leverage MCP servers and specialist agents for enhanced productivity.
