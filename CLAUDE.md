@@ -4,9 +4,16 @@
 **Environment**: Laravel Herd, Vite, Pest, Vitest  
 **Routing**: Wayfinder (Primary) / Ziggy (Legacy)
 
+**🤖 Dual AI Support**: This configuration works with **both Claude Code and GitHub Copilot**
+- **Claude Code**: Uses this file + MCP servers for comprehensive development
+- **GitHub Copilot**: Uses `.github/copilot-instructions.md` + shared `.claude/examples/`
+- **Shared Knowledge**: Both tools reference the same example files for consistency
+
 ---
 
-## 🧠 Memory First Protocol (CRITICAL)
+## 🧠 Memory First Protocol (Claude Code Only)
+
+> **Note**: This section uses MCP servers which are Claude Code specific. GitHub Copilot users should check `package.json` and `composer.json` directly.
 
 **DO NOT** scan the file system to understand the project structure.
 
@@ -90,14 +97,17 @@ npm run build              # Build production assets
 
 ---
 
-## 🛠️ MCP Server Tools Strategy
+## 🛠️ MCP Server Tools Strategy (Claude Code Only)
 
-**Always use MCP servers for enhanced development:**
+> **GitHub Copilot Users**: MCP servers are exclusive to Claude Code. Copilot provides inline suggestions and chat without external tool integration.
+
+**Always use MCP servers for enhanced Claude Code development:**
 
 ### Core Development (Always Available)
 - `mcp__serena__*` - Semantic code analysis and intelligent navigation
 - `mcp__context7__*` - Up-to-date documentation access
 - `mcp__browsermcp__*` - Real-time browser debugging with authenticated sessions
+- `mcp__playwright__*` - Browser automation with Laravel integration
 
 ### Quality Assurance (Recommended)
 - `mcp__zen__codereview` - Professional code review before PRs
@@ -108,6 +118,12 @@ npm run build              # Build production assets
 - `mcp__zen__thinkdeep` - Extended reasoning for architectural decisions
 - `mcp__zen__debug` - Systematic debugging workflows
 - `mcp__zen__consensus` - Multi-model validation for major decisions
+
+### Laravel & Development Tools
+- `mcp__boost__*` - Laravel-specific utilities (logs, tinker, routes)
+- `mcp__herd__*` - Laravel Herd environment management
+- `mcp__filesystem__*` - File operations and watching
+- `mcp__git__*` - Git operations and workflow automation
 
 **📖 [Complete MCP Server Guides](docs/mcp-servers/)**
 
@@ -277,6 +293,7 @@ git add -A && git commit -m "[action]: [description]"
 - **[Quality Assurance](docs/workflows/quality-assurance.md)** - Code review, testing, security workflows
 - **[Debugging & Investigation](docs/workflows/debugging-investigation.md)** - Systematic problem-solving approaches
 - **[Performance Optimization](docs/workflows/performance-optimization.md)** - Performance analysis and tuning strategies
+- **[GitHub Copilot Usage](docs/workflows/github-copilot-usage.md)** - Dual AI tool best practices
 
 ### 🤖 AI Agent Specialists
 **Consult when:** Need domain expertise for complex tasks, specialized knowledge required
@@ -286,8 +303,10 @@ git add -A && git commit -m "[action]: [description]"
 - **[Testing Specialist](.claude/agents/testing-specialist.md)** - Comprehensive testing strategies & QA processes
 - **[Security Specialist](.claude/agents/security-specialist.md)** - Security audits, vulnerability assessments
 - **[Performance Specialist](.claude/agents/performance-specialist.md)** - Performance optimization & database tuning
+- **[Database Architect](.claude/agents/database-architect.md)** - Schema design, migrations, relationship optimization
+- **[Git Workflow Specialist](.claude/agents/git-specialist.md)** - Conventional commits, branching, PR workflows
 
-###  উদাহরণ Hybrid Agent Examples
+### 📝 Hybrid Agent Examples
 **Consult when:** You need boilerplate or syntax examples for common patterns.
 - **[VILT Examples](.claude/examples/vilt-examples.md)** - Code patterns for Wayfinder, `useForm`, and shadcn-vue.
 - **[Filament Examples](.claude/examples/filament-examples.md)** - Boilerplate for Filament Resources, Forms, and Tables.
@@ -298,7 +317,11 @@ git add -A && git commit -m "[action]: [description]"
 - **[Serena Guide](docs/mcp-servers/serena-guide.md)** - Semantic code analysis, navigation, editing
 - **[Zen Guide](docs/mcp-servers/zen-guide.md)** - Advanced analysis, multi-model workflows, quality assurance
 - **[Context7 Guide](docs/mcp-servers/context7-guide.md)** - Up-to-date documentation access & retrieval
+- **[Playwright Guide](docs/mcp-servers/playwright-guide.md)** - Browser automation with Laravel integration
 - **[BrowserMCP Guide](docs/mcp-servers/browsermcp-guide.md)** - Real-time browser debugging and troubleshooting
+- **[Git Guide](docs/mcp-servers/git-guide.md)** - Version control automation and workflows
+- **[Laravel Boost Guide](docs/mcp-servers/laravel-boost-guide.md)** - Laravel utilities (logs, tinker, routes)
+- **[Laravel Herd Guide](docs/mcp-servers/laravel-herd-guide.md)** - Herd environment management
 
 ### 📖 Reference Materials
 **Consult when:** Need command syntax, coding standards, architectural decisions, AI interaction patterns
