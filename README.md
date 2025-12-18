@@ -1,8 +1,8 @@
-# Laravel TALL Stack AI Development Starter Kit
+# Laravel VILT Stack AI Development Starter Kit
 
 **🚀 Supercharge your Laravel development with AI-powered workflows, specialist agents, and systematic quality assurance.**
 
-Transform your Laravel TALL (Tailwind, AlpineJS, Laravel, Livewire) stack development with comprehensive Claude Code configurations that provide intelligent assistance, systematic workflows, and domain expert consultation.
+Transform your Laravel VILT (Vue, Inertia.js, Laravel, Tailwind CSS) stack development with comprehensive Claude Code configurations that provide intelligent assistance, systematic workflows, and domain expert consultation.
 
 ---
 
@@ -10,11 +10,11 @@ Transform your Laravel TALL (Tailwind, AlpineJS, Laravel, Livewire) stack develo
 
 ### 🤖 **AI Specialist Agents**
 Pre-configured domain experts for Laravel development:
-- **🔧 DevOps Specialist** - Docker, deployment, infrastructure management
+- **🔧 DevOps Specialist** - Laravel Herd, deployment, infrastructure management
 - **🔒 Security Specialist** - Vulnerability assessment, security best practices  
 - **⚡ Performance Specialist** - Database optimization, performance tuning
 - **🧪 Testing Specialist** - Comprehensive testing strategies and QA
-- **🎨 TALL Stack Specialist** - Livewire, Alpine.js, frontend patterns
+- **🎨 VILT Stack Specialist** - Vue 3, Inertia.js, Ziggy, frontend patterns
 
 ### 📋 **Systematic Development Workflows**
 - **Feature Development** - End-to-end implementation process
@@ -42,7 +42,7 @@ claude auth login
 ### 2. **Add to Your Laravel Project**
 ```bash
 cd your-laravel-project
-git clone https://github.com/tott/laravel-tall-claude-ai-configs.git .ai-config
+git clone https://github.com/mukulsmu/laravel-vilt-claude-ai-configs.git .ai-config
 cp -r .ai-config/.claude ./
 cp -r .ai-config/docs ./
 cp .ai-config/CLAUDE.md ./
@@ -66,8 +66,9 @@ npx @browsermcp/mcp@latest
 ### 4. **Start AI-Assisted Development**
 ```bash
 claude "Help me understand this Laravel project structure"
-claude "DevOps Specialist: Set up Docker for this project"
+claude "DevOps Specialist: Configure Laravel Herd for this project"
 claude "Follow the feature development workflow for user authentication"
+claude "VILT Stack Specialist: Create a Vue component with Inertia integration"
 ```
 
 ---
@@ -75,10 +76,13 @@ claude "Follow the feature development workflow for user authentication"
 ## 🛠️ **Technology Stack Optimized For**
 
 - **Laravel 12** - Modern PHP framework with latest features
-- **TALL Stack** - Tailwind CSS, Alpine.js, Laravel, Livewire
-- **Laravel Sail** - Docker development environment
-- **Pest** - PHP testing framework
-- **FilamentPHP** - Admin interfaces (optional)
+- **VILT Stack** - Vue 3, Inertia.js, Laravel, Tailwind CSS
+- **Laravel Herd** - Native PHP development environment
+- **Vite** - Fast build tool and dev server
+- **Pest/PHPUnit** - PHP testing framework
+- **Vitest** - Vue component testing framework
+- **Ziggy** - Laravel route integration for Vue
+- **TypeScript** - Optional type safety (recommended)
 
 ---
 
@@ -98,4 +102,4 @@ MIT License - see [LICENSE](LICENSE) file for details.
 
 ---
 
-*Transform your Laravel development workflow with intelligent AI assistance, systematic quality assurance, and domain expert guidance.* 🚀
+*Transform your Laravel VILT stack development workflow with intelligent AI assistance, systematic quality assurance, and domain expert guidance.* 🚀
