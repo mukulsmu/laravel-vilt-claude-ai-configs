@@ -48,18 +48,16 @@ mkdir -p .github
 
 # Handle .github/copilot-instructions.md
 if [ -f ".github/copilot-instructions.md" ]; then
-    echo "✏️  Appending VILT enhancements to existing Copilot instructions..."
-    echo "" >> .github/copilot-instructions.md
-    echo "# === VILT Stack Enhancements Added by laravel-vilt-ai-toolkit ===" >> .github/copilot-instructions.md
-    echo "" >> .github/copilot-instructions.md
-    cat .ai-config/.github/copilot-instructions.md >> .github/copilot-instructions.md
-else
-    echo "📝 Creating Copilot instructions file..."
-    cp .ai-config/.github/copilot-instructions.md .github/copilot-instructions.md
+    echo "⚠️  Existing Copilot instructions found"
+    echo "   Our VILT instructions will replace it (original backed up as .copilot-instructions.md.backup)"
+    mv .github/copilot-instructions.md .github/copilot-instructions.md.backup
 fi
 
+echo "📝 Installing VILT Copilot instructions..."
+cp .ai-config/.github/copilot-instructions.md .github/copilot-instructions.md
+
 # Copy additional configurations
-echo "📁 Installing path-scoped instructions..."
+echo "📁 Installing path-scoped instructions (including Laravel Boost reference)..."
 cp -r .ai-config/.github/instructions ./.github/
 
 echo "🤖 Installing custom agents..."

@@ -1,21 +1,18 @@
 # GitHub Copilot Instructions - Laravel VILT Stack
 
-**NOTE**: This file enhances Laravel Boost's base Copilot instructions with VILT-specific patterns.
-If Laravel Boost is installed (required), this content should be APPENDED to the base `.github/copilot-instructions.md` that Boost creates.
+**Architecture**: This configuration works with Laravel Boost for optimal AI-powered development.
 
-## Installation Context
+## How This Works
 
-This configuration is designed to work with Laravel Boost (https://boost.laravel.com/).
-Laravel Boost provides base Laravel AI instructions and MCP server configuration.
-Our toolkit adds VILT stack-specific patterns (Vue 3, Inertia.js, Tailwind CSS).
+This file provides VILT stack-specific instructions for GitHub Copilot. It works alongside Laravel Boost's base Laravel configuration.
 
-**Installation order**:
-1. Install Laravel Boost: `php artisan boost:install` (creates base config)
-2. Append this file to enhance with VILT patterns (see README.md for instructions)
+**Laravel Boost Base Instructions**: See [`.github/instructions/laravel-boost-base.instructions.md`](.github/instructions/laravel-boost-base.instructions.md) for the base Laravel conventions that Laravel Boost provides. Those instructions are automatically available when Laravel Boost is installed. This file adds VILT-specific enhancements.
+
+**No Merging Required**: Simply copy this file to your project. Copilot will reference both this file and the Boost base instructions automatically through the path-scoped instruction system.
 
 ---
 
-# VILT Stack Enhancement
+# VILT Stack Configuration
 
 This file provides repository-wide instructions for GitHub Copilot to generate consistent, high-quality code for Laravel VILT (Vue, Inertia.js, Laravel, Tailwind CSS) stack applications.
 

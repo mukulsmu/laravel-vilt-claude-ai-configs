@@ -64,33 +64,54 @@ return [
 
 ## How Our Toolkit Integrates
 
-### File Handling Strategy
+### File Handling Strategy (Updated)
 
 | File | Laravel Boost Creates | Our Toolkit Provides | Strategy |
 |------|----------------------|---------------------|----------|
-| `.github/copilot-instructions.md` | ✅ Base Laravel config | ✅ VILT enhancements | **APPEND** our content |
+| `.github/copilot-instructions.md` | ✅ Base Laravel config | ✅ VILT config (replaces) | **REPLACE** with our file |
+| `.github/instructions/laravel-boost-base.instructions.md` | ❌ No | ✅ Reference for Boost's content | **COPY** (for documentation) |
 | `.github/instructions/*.md` | ❌ No | ✅ Path-scoped rules | **COPY** our files |
 | `.github/agents/` | ❌ No | ✅ Custom agents | **COPY** our directory |
 | `.github/skills/` | ❌ No | ✅ Skill guides | **COPY** our directory |
 | `AGENTS.md` | ❌ No | ✅ Coding Agent instructions | **COPY** our file |
 
+**Key Change**: Instead of appending to Laravel Boost's `copilot-instructions.md`, we replace it with our own file that **references** the Boost instructions through path-scoped instruction files. This is cleaner and follows the same pattern as our other modular instructions.
+
+### How It Works
+
+1. **Laravel Boost creates**: `.github/copilot-instructions.md` with base Laravel conventions
+2. **Our toolkit replaces it with**: A VILT-focused file that references Boost's content via `.github/instructions/laravel-boost-base.instructions.md`
+3. **Copilot reads**: Both our main instructions AND the path-scoped Boost reference automatically
+4. **Result**: No merge conflicts, clean separation of concerns
+
+### File Reference Pattern
+
+Our `.github/copilot-instructions.md` now includes:
+
+```markdown
+**Laravel Boost Base Instructions**: See `.github/instructions/laravel-boost-base.instructions.md` 
+for the base Laravel conventions that Laravel Boost provides.
+```
+
+This follows the same pattern as other modular instructions in `.github/instructions/`.
+
 ### Merge vs Copy Decision Tree
 
 ```
 Is the file created by Laravel Boost?
-├─ YES: APPEND/MERGE our enhancements
-│   └─ .github/copilot-instructions.md
-│   └─ .claude/mcp-config.json (if using Claude)
+├─ YES: Our file REFERENCES it (via path-scoped instructions)
+│   └─ .github/copilot-instructions.md (we replace with reference-based version)
+│   └─ .github/instructions/laravel-boost-base.instructions.md (documents Boost's content)
 │
 └─ NO: COPY our file directly
-    └─ .github/instructions/
+    └─ .github/instructions/ (our VILT-specific rules)
     └─ .github/agents/
     └─ .github/skills/
     └─ AGENTS.md
     └─ docs/
 ```
 
-## Installation Commands (Correct)
+## Installation Commands (Updated)
 
 ```bash
 # Step 1: Install Laravel Boost (creates base config)
@@ -100,11 +121,12 @@ php artisan boost:install
 # Step 2: Clone our toolkit
 git clone https://github.com/mukulsmu/laravel-vilt-claude-ai-configs.git .ai-config
 
-# Step 3: APPEND our VILT enhancements to Boost's base
-cat .ai-config/.github/copilot-instructions.md >> .github/copilot-instructions.md
+# Step 3: REPLACE copilot-instructions.md with our VILT version (backs up Boost's)
+mv .github/copilot-instructions.md .github/copilot-instructions.md.boost-backup  # Optional backup
+cp .ai-config/.github/copilot-instructions.md .github/copilot-instructions.md
 
-# Step 4: COPY our additional files (don't exist in Boost)
-cp -r .ai-config/.github/instructions ./.github/
+# Step 4: COPY our additional files (includes Boost reference)
+cp -r .ai-config/.github/instructions ./.github/  # Includes laravel-boost-base.instructions.md
 cp -r .ai-config/.github/agents ./.github/
 cp -r .ai-config/.github/skills ./.github/
 cp .ai-config/AGENTS.md ./
@@ -118,10 +140,14 @@ rm -rf .ai-config
 
 ## Verification After Installation
 
-Check that files are properly merged:
+Check that files are properly installed:
 
 ```bash
-# Should show Laravel Boost base + VILT enhancements
+# Should show VILT-focused instructions with reference to Boost
+cat .github/copilot-instructions.md | head -20
+
+# Should include the Laravel Boost reference file
+cat .github/instructions/laravel-boost-base.instructions.md
 cat .github/copilot-instructions.md | head -20
 
 # Should exist (from our toolkit)
