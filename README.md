@@ -14,9 +14,17 @@ Supercharge your Laravel VILT (Vue, Inertia.js, Laravel, Tailwind CSS) stack dev
 | **Specialist Agents** | `.claude/agents/` | `AGENTS.md` + `.github/agents/` |
 | **Path-Scoped Rules** | Per-agent configs | `.github/instructions/` |
 | **Workflows & Skills** | `docs/workflows/` | `.github/skills/` |
-| **Best For** | Deep reasoning, multi-file refactoring, architectural decisions | Quick completions, IDE integration, real-time suggestions |
+| **Free Requests** | N/A (API credits) | Unlimited completions & chat |
+| **Premium Models** | Claude Sonnet/Opus | Claude Sonnet, Gemini Pro, GPT-4o |
+| **Complex Multi-File** | ✅ Native | ✅ Via premium requests |
+| **MCP Servers** | ✅ Full support | ❌ Not available |
 
-**Use both together** for maximum productivity: Claude for complex tasks, Copilot for day-to-day coding.
+**Use both together** for maximum productivity:
+- **Copilot Free**: Quick completions, documentation, simple tasks
+- **Copilot Premium**: Complex features using Claude/Gemini models
+- **Claude Code**: MCP-enhanced analysis, security audits, long workflows
+
+📖 **[Complete Dual Setup Guide](DUAL-SETUP.md)** - Optimize free vs premium requests
 
 ---
 
@@ -47,7 +55,32 @@ Enhanced capabilities through official MCP servers:
 
 ## 🚀 **Quick Start**
 
-### Option A: GitHub Copilot Setup (Fastest)
+### Option A: Both Tools (Recommended) ⭐
+
+```bash
+cd your-laravel-project
+
+# Clone configuration repository
+git clone https://github.com/mukulsmu/laravel-vilt-claude-ai-configs.git .ai-config
+
+# Copy ALL configurations
+cp -r .ai-config/.github ./      # GitHub Copilot
+cp -r .ai-config/.claude ./      # Claude agents
+cp -r .ai-config/docs ./         # Documentation
+cp .ai-config/CLAUDE.md ./       # Claude instructions
+cp .ai-config/AGENTS.md ./       # Copilot Coding Agent
+
+# Clean up
+rm -rf .ai-config
+
+# Install Claude Code CLI
+npm install -g @anthropic/claude-code
+claude auth login
+```
+
+📖 **[Complete Dual Setup Guide](DUAL-SETUP.md)** - Includes request optimization strategies
+
+### Option B: GitHub Copilot Only
 
 ```bash
 cd your-laravel-project
@@ -61,11 +94,11 @@ cp .ai-config/AGENTS.md ./
 rm -rf .ai-config
 ```
 
-That's it! Copilot will automatically use the instructions for better suggestions.
+Copilot will automatically use the instructions. Use premium models (`@claude-sonnet`, `@gemini-pro`) for complex tasks.
 
 📖 **Full guide:** [COPILOT-SETUP.md](COPILOT-SETUP.md)
 
-### Option B: Claude Code Setup (Full Features)
+### Option C: Claude Code Only
 
 ```bash
 # Install Claude Code CLI
@@ -85,45 +118,49 @@ rm -rf .ai-config
 
 📖 **Full guide:** [SETUP.md](SETUP.md)
 
-### Option C: Both (Recommended)
-
-```bash
-cd your-laravel-project
-
-# Clone configuration repository
-git clone https://github.com/mukulsmu/laravel-vilt-claude-ai-configs.git .ai-config
-
-# Copy ALL configurations
-cp -r .ai-config/.github ./      # GitHub Copilot
-cp -r .ai-config/.claude ./      # Claude agents
-cp -r .ai-config/docs ./         # Documentation
-cp .ai-config/CLAUDE.md ./       # Claude instructions
-cp .ai-config/AGENTS.md ./       # Copilot Coding Agent
-
-# Clean up
-rm -rf .ai-config
-```
-
 ---
 
 ## 💡 **Usage Examples**
 
-### With GitHub Copilot
+### GitHub Copilot - Free Requests (Unlimited)
 
 ```plaintext
-# In Copilot Chat
-"Create a Post model with migration, controller, and Vue pages"
-"Write Pest tests for the UserController"
-"Add validation to the registration form"
+# Quick completions - just type and Tab
+# Documentation generation
+# Simple refactoring
+"Create a Post model with migration"
+"Write a test for this method"
+"Add PHPDoc to this class"
 ```
 
-### With Claude Code
+### GitHub Copilot - Premium Requests (Claude/Gemini/GPT-4o)
+
+```plaintext
+# In Copilot Chat, select Claude/Gemini/GPT-4o from model dropdown:
+"Implement a complete blog feature with model, controller, and Vue pages"
+"Analyze this codebase structure and suggest improvements"
+"Refactor this service following SOLID principles"
+```
+
+### Claude Code (MCP-Enhanced)
 
 ```bash
-# Terminal
-claude "DevOps Specialist: Configure Laravel Herd for this project"
-claude "VILT Stack Specialist: Create a Vue component with Inertia integration"
+# Terminal commands with MCP server integration
+claude "Use mcp__zen__codereview to analyze security vulnerabilities"
+claude "Security Specialist: Perform complete security audit"
+claude "VILT Stack Specialist: Create notification system with real-time updates"
 claude "Follow the feature development workflow for user profiles"
+```
+
+### Optimal Workflow Strategy
+
+```plaintext
+┌─────────────────────────────────────────────────────────────┐
+│ 1. START: Copilot Free for scaffolding and boilerplate      │
+│ 2. ESCALATE: Copilot Premium (select model) for complex     │
+│ 3. DEEP ANALYSIS: Claude Code for MCP-based audits          │
+│ 4. REVIEW: Claude Code for comprehensive code review        │
+└─────────────────────────────────────────────────────────────┘
 ```
 
 ---
@@ -170,6 +207,7 @@ claude "Follow the feature development workflow for user profiles"
 
 | Document | Purpose |
 |----------|---------|
+| [DUAL-SETUP.md](DUAL-SETUP.md) | **Complete guide for using both tools together** |
 | [COPILOT-SETUP.md](COPILOT-SETUP.md) | GitHub Copilot installation and usage |
 | [SETUP.md](SETUP.md) | Claude Code installation and MCP servers |
 | [CLAUDE.md](CLAUDE.md) | Claude AI development guidelines |

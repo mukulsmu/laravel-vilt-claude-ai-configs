@@ -132,6 +132,67 @@ Copilot uses the instructions files automatically. You can also:
 2. **Ask about structure**: "What's the pattern for forms in this project?"
 3. **Request explanations**: "Explain how Inertia routing works here"
 
+## 🤖 Premium Models for Complex Tasks
+
+GitHub Copilot supports premium AI models for complex development tasks. These models provide deeper reasoning capabilities similar to Claude Code.
+
+### Available Premium Models
+
+| Model | Best For |
+|-------|----------|
+| **Claude Sonnet** | Complex reasoning, code analysis, refactoring |
+| **Gemini Pro** | Large codebase analysis, multi-modal tasks |
+| **GPT-4o** | Creative solutions, general complex tasks |
+
+### Using Premium Models in Chat
+
+Select your preferred model from the dropdown at the top of Copilot Chat, then type your prompt:
+
+```plaintext
+# With Claude Sonnet selected:
+"Implement a caching layer with Redis for API responses"
+
+# With Gemini Pro selected:
+"Analyze this entire module and identify architectural issues"
+
+# With GPT-4o selected:
+"Design a notification system with email, SMS, and push support"
+```
+
+### Premium Model Use Cases
+
+**Complex Multi-File Changes:**
+```plaintext
+# Select Claude Sonnet, then:
+"Create a complete blog feature including Post model with migration, 
+CRUD controller with Inertia responses, Vue pages for index/show/create/edit, 
+and Pest tests for all endpoints"
+```
+
+**Architectural Decisions:**
+```plaintext
+"Review this authentication system and suggest improvements for security and scalability"
+```
+
+**Long-Running Tasks:**
+```plaintext
+# Select Gemini Pro for large context:
+"Analyze all controllers in this project and create a report of N+1 query issues"
+```
+
+### Optimizing Request Usage
+
+| Task Type | Recommendation |
+|-----------|----------------|
+| Boilerplate code | Free (standard Copilot) |
+| Documentation | Free |
+| Simple refactoring | Free |
+| Complex logic | Premium (select Claude Sonnet) |
+| Architecture review | Premium |
+| Multi-file features | Premium |
+
+**Pro Tip**: Start with free requests. If the result isn't satisfactory, switch to a premium model for that specific task.
+
 ## 🤖 Copilot Coding Agent (Enterprise Feature)
 
 If you have GitHub Copilot Enterprise, the Coding Agent can:
@@ -243,20 +304,23 @@ applyTo: "app/Http/Controllers/Api/**/*.php"
 ## 📚 Additional Resources
 
 - **Full Documentation**: `docs/` directory
+- **Dual AI Setup**: See [DUAL-SETUP.md](DUAL-SETUP.md) for using both tools together
 - **Claude AI Support**: See `CLAUDE.md` and `.claude/` for Claude-specific configs
 - **Laravel VILT Docs**: https://inertiajs.com, https://vuejs.org
 - **GitHub Copilot Docs**: https://docs.github.com/copilot
 
 ## 🎯 Best Practices
 
-1. **Keep instructions concise**: Copilot works best with clear, actionable guidelines
-2. **Update regularly**: Keep instructions in sync with your codebase
-3. **Use path-scoping**: Apply rules to specific file types when possible
-4. **Test suggestions**: Verify Copilot follows your patterns
-5. **Combine with Claude**: Use both AI assistants for comprehensive coverage
+1. **Start with free requests**: Use standard Copilot for most tasks
+2. **Escalate to premium**: Use `@claude-sonnet` for complex reasoning tasks
+3. **Keep instructions concise**: Copilot works best with clear, actionable guidelines
+4. **Update regularly**: Keep instructions in sync with your codebase
+5. **Use path-scoping**: Apply rules to specific file types when possible
+6. **Test suggestions**: Verify Copilot follows your patterns
+7. **Combine with Claude Code**: Use Claude for MCP-enhanced workflows
 
 ---
 
-**Need help?** Open an issue or check the documentation in `docs/`.
+**Need help?** Open an issue or check [DUAL-SETUP.md](DUAL-SETUP.md) for the complete dual-tool guide.
 
 *Happy coding with GitHub Copilot and Laravel VILT! 🚀*

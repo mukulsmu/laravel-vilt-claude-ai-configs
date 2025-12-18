@@ -8,12 +8,19 @@ This repository provides comprehensive AI coding agent configurations for Larave
 - **CLAUDE.md** - Main development guidelines with MCP server integration
 - **.claude/agents/** - Specialist agents for domain expertise
 - **docs/** - Comprehensive workflows, guides, and references
+- Premium model access via Anthropic API
 
 ### GitHub Copilot  
 - **.github/copilot-instructions.md** - Repository-wide code generation rules
 - **.github/instructions/** - Path-scoped rules for PHP, Vue, and testing
 - **.github/skills/** - Feature development, testing, and debugging skills
 - **AGENTS.md** - Instructions for Copilot Coding Agent
+- **Premium models**: Claude Sonnet, Gemini Pro, GPT-4o for complex tasks
+
+### Combined Setup (Recommended)
+- **[DUAL-SETUP.md](DUAL-SETUP.md)** - Complete guide for using both tools together
+- Optimized workflow: Free requests for simple tasks, premium for complex
+- No conflicts - tools read different configuration files
 
 ## 🎯 What's Included
 
