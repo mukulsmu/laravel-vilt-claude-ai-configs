@@ -124,6 +124,7 @@ npm run build              # Build production assets
 - `mcp__herd__*` - Laravel Herd environment management
 - `mcp__filesystem__*` - File operations and watching
 - `mcp__git__*` - Git operations and workflow automation
+- `mcp__database__*` - Database operations (SQLite, PostgreSQL, MySQL)
 
 **📖 [Complete MCP Server Guides](docs/mcp-servers/)**
 
@@ -322,6 +323,8 @@ git add -A && git commit -m "[action]: [description]"
 - **[Git Guide](docs/mcp-servers/git-guide.md)** - Version control automation and workflows
 - **[Laravel Boost Guide](docs/mcp-servers/laravel-boost-guide.md)** - Laravel utilities (logs, tinker, routes)
 - **[Laravel Herd Guide](docs/mcp-servers/laravel-herd-guide.md)** - Herd environment management
+- **[Filesystem Guide](docs/mcp-servers/filesystem-guide.md)** - File operations, directory management, watching
+- **[Database Guide](docs/mcp-servers/database-guide.md)** - Database operations (SQLite, PostgreSQL, MySQL)
 
 ### 📖 Reference Materials
 **Consult when:** Need command syntax, coding standards, architectural decisions, AI interaction patterns
