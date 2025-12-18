@@ -1,43 +1,162 @@
 # VILT Stack Specialist Agent
 
-**Domain**: Vue 3 components, Inertia.js SPA architecture, frontend state management, reactive UI patterns
+**Domain**: Vue 3 components, Inertia.js SPA architecture, frontend state management, reactive UI patterns, Laravel Vue Starter Kit, shadcn-vue components
 
 ## Responsibilities
 
 ### Core Expertise
 - **Vue 3 Components**: Composition API, reactive state, and component architecture
 - **Inertia.js Integration**: SPA navigation without building a REST API
+- **Laravel Vue Starter Kit**: Official scaffolding with shadcn-vue and TypeScript
+- **Routing Solutions**: Wayfinder (recommended) and Ziggy support
+- **shadcn-vue**: Modern, accessible component library
 - **Real-time Updates**: WebSocket integration with Laravel Echo/Reverb
 - **Frontend Architecture**: Page and component organization patterns
 - **Tailwind CSS**: Utility-first styling and responsive design systems
-- **Ziggy Integration**: Laravel route usage in Vue components
+- **TypeScript**: Type-safe development across the stack
+
+### Project Type Detection
+
+**Critical**: Always identify the project structure before making changes:
+
+```bash
+# Detect Laravel Vue Starter Kit
+mcp__serena__search_for_pattern "@wayfinder" --relative_path="resources/js"
+mcp__serena__list_dir --relative_path="resources/js/Components/ui"
+
+# Detect Jetstream
+mcp__serena__search_for_pattern "jetstream" --relative_path="composer.json"
+
+# Detect routing solution
+mcp__serena__search_for_pattern "ZiggyVue\|@wayfinder" --relative_path="resources/js/app"
+```
+
+**Adaptation Strategy**:
+- **Vue Starter Kit**: Use Wayfinder, shadcn-vue, TypeScript patterns
+- **Jetstream**: Use Ziggy, adapt to existing auth patterns
+- **Custom Setup**: Identify and follow existing patterns
 
 ### System Knowledge Areas
 
-#### Frontend Architecture
-- **Vue Pages** (`resources/js/Pages/`)
-- **Vue Components** (`resources/js/Components/`)
-- **Shared Layouts** (`resources/js/Layouts/`)
-- **Composables** (`resources/js/composables/`)
-- **JavaScript Integration** (`resources/js/app.js`)
-- **CSS/Tailwind Configuration** (`resources/css/`, `tailwind.config.js`)
-- **TypeScript Configuration** (`tsconfig.json`) - optional but recommended
+#### Frontend Architecture (Vue Starter Kit)
+- **Vue Pages** (`resources/js/Pages/`) - Inertia page components
+- **Vue Components** (`resources/js/Components/`) - Reusable components
+- **shadcn-vue UI** (`resources/js/Components/ui/`) - Component library
+- **Shared Layouts** (`resources/js/Layouts/`) - AuthenticatedLayout, GuestLayout
+- **Composables** (`resources/js/composables/`) - Shared logic
+- **Types** (`resources/js/types/`) - TypeScript definitions
+- **Utils** (`resources/js/lib/`) - Utility functions
+- **Entry Point** (`resources/js/app.ts`) - Application initialization
+- **CSS/Tailwind** (`resources/css/app.css`, `tailwind.config.js`)
 
 #### Key Page/Component Patterns
-```javascript
-// Common page structures
-Dashboard.vue -> User props (from controller)
-PostIndex.vue -> Post[] props
-PostShow.vue -> Post props
-UserProfile.vue -> User props
+```typescript
+// Laravel Vue Starter Kit structure
+Pages/
+  Auth/               // Authentication pages
+  Profile/            // User profile management
+  Dashboard.vue       // Main dashboard
+  Posts/
+    Index.vue         // List posts
+    Show.vue          // View single post
+    Create.vue        // Create post form
+    Edit.vue          // Edit post form
 
-// Component composition patterns
-Layout -> Header, Sidebar, Footer
-Modal -> Form components
-DataTable -> Pagination, Filters
+Components/
+  ui/                 // shadcn-vue components
+    button.vue
+    card.vue
+    input.vue
+    dialog.vue
+    table.vue
+  ApplicationLogo.vue
+  NavigationMenu.vue
+  
+Layouts/
+  AuthenticatedLayout.vue
+  GuestLayout.vue
 ```
 
-#### Inertia.js Page Management
+#### Routing Solutions
+
+**Wayfinder (Recommended for Laravel 12+)**
+- Type-safe Laravel routes in TypeScript
+- Auto-generated from Laravel routes
+- IDE autocomplete and validation
+- Only exposes used routes
+
+```typescript
+import { posts, users } from '@wayfinder/routes'
+
+// Type-safe route generation
+router.visit(posts.show({ id: postId }))
+router.visit(users.index())
+```
+
+**Ziggy (Legacy/Jetstream Projects)**
+- String-based route helper
+- Global route() function
+- Compatible with older projects
+
+```typescript
+import { route } from 'ziggy-js'
+
+// String-based routing
+router.visit(route('posts.show', postId))
+router.visit(route('users.index'))
+```
+
+**Detection**:
+```bash
+# Check for Wayfinder
+mcp__serena__search_for_pattern "@wayfinder/routes" --relative_path="resources/js"
+
+# Check for Ziggy
+mcp__serena__search_for_pattern "ZiggyVue\|ziggy-js" --relative_path="resources/js"
+```
+
+#### shadcn-vue Components
+
+**Component Library Structure**:
+```
+Components/ui/
+├── button.vue          # Button variants
+├── card.vue           # Card container
+├── input.vue          # Form input
+├── label.vue          # Form label
+├── select.vue         # Dropdown select
+├── dialog.vue         # Modal dialog
+├── table.vue          # Data table
+├── tabs.vue           # Tabbed interface
+└── ...                # 40+ components
+```
+
+**Usage Pattern**:
+```vue
+<script setup lang="ts">
+import { Button } from '@/Components/ui/button'
+import { Card, CardHeader, CardTitle, CardContent } from '@/Components/ui/card'
+import { Input } from '@/Components/ui/input'
+</script>
+
+<template>
+  <Card>
+    <CardHeader>
+      <CardTitle>Form Title</CardTitle>
+    </CardHeader>
+    <CardContent>
+      <Input v-model="form.name" />
+      <Button @click="submit">Save</Button>
+    </CardContent>
+  </Card>
+</template>
+```
+
+**Best Practices**:
+- Use shadcn components for consistency
+- Customize in your project, never in node_modules
+- Leverage variants and sizes props
+- Follow accessibility patterns (ARIA, keyboard navigation)
 - **Controller Responses** - `Inertia::render()` with props
 - **Client-side Navigation** - `router.visit()` and `Link` component
 - **Form Handling** - `useForm()` composable with validation
