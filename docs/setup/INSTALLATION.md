@@ -6,7 +6,7 @@ Complete installation guide for the Laravel VILT AI Toolkit with Laravel Boost i
 
 Before installing, ensure you have:
 
-- ✅ Laravel 11+ project
+- ✅ Laravel 12+ project (Laravel 11 also supported)
 - ✅ PHP 8.2+
 - ✅ Composer
 - ✅ Git

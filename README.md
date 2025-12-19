@@ -190,37 +190,6 @@ rm -rf .ai-config
 ```
 
 📖 **Full guide:** [SETUP.md](SETUP.md)
-git clone https://github.com/mukulsmu/laravel-vilt-claude-ai-configs.git .ai-config
-cp -r .ai-config/.github ./
-cp .ai-config/AGENTS.md ./
-
-# Clean up
-rm -rf .ai-config
-```
-
-Copilot will automatically use the instructions. Use premium models (`@claude-sonnet`, `@gemini-pro`) for complex tasks.
-
-📖 **Full guide:** [COPILOT-SETUP.md](COPILOT-SETUP.md)
-
-### Option C: Claude Code Only
-
-```bash
-# Install Claude Code CLI
-npm install -g @anthropic/claude-code
-claude auth login
-
-# Add configurations to your project
-cd your-laravel-project
-git clone https://github.com/mukulsmu/laravel-vilt-claude-ai-configs.git .ai-config
-cp -r .ai-config/.claude ./
-cp -r .ai-config/docs ./
-cp .ai-config/CLAUDE.md ./
-
-# Clean up
-rm -rf .ai-config
-```
-
-📖 **Full guide:** [SETUP.md](SETUP.md)
 
 ---
 

@@ -1,20 +1,27 @@
 {
+  "$comment": "Claude Desktop MCP Configuration for Laravel VILT Stack",
+  "$comment_2": "This file should be placed in your project root as .mcp.json",
+  "$comment_3": "Or merge with your Claude Desktop config at:",
+  "$comment_4": "macOS: ~/Library/Application Support/Claude/claude_desktop_config.json",
+  "$comment_5": "Windows: %APPDATA%\\Claude\\claude_desktop_config.json",
   "mcpServers": {
     "laravel-boost": {
       "command": "php",
-      "args": [
-        "artisan",
-        "boost:mcp"
-      ]
+      "args": ["artisan", "boost:mcp"],
+      "description": "Laravel Boost MCP server for code generation and scaffolding"
     },
     "herd": {
+      "$comment_mac": "macOS path: /Applications/Herd.app/Contents/Resources/herd-mcp.phar",
+      "$comment_windows": "Windows path: C:\\Program Files\\Herd\\resources\\herd-mcp.phar",
+      "$comment_linux": "Linux: Not supported - use Laravel Valet or Docker instead",
       "command": "php",
       "args": [
         "/Applications/Herd.app/Contents/Resources/herd-mcp.phar"
       ],
       "env": {
         "SITE_PATH": "PROJECT_PATH_PLACEHOLDER"
-      }
+      },
+      "description": "Laravel Herd MCP for local PHP development server management (update path for your OS)"
     },
     "oraios/serena": {
       "type": "stdio",
@@ -30,11 +37,13 @@
         "PROJECT_PATH_PLACEHOLDER",
         "--filter-tools",
         "read_file,write_file,replace_in_file,search_for_pattern,list_dir,create_directory,find_symbol_definition,find_referencing_symbols,read_memory,write_memory,search_memory"
-      ]
+      ],
+      "description": "Serena MCP for semantic code analysis and intelligent navigation"
     },
     "browsermcp": {
       "command": "npx",
-      "args": ["@browsermcp/mcp@latest"]
+      "args": ["@browsermcp/mcp@latest"],
+      "description": "BrowserMCP for real-time browser automation and testing"
     }
   }
 }

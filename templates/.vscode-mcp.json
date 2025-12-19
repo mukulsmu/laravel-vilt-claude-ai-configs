@@ -1,20 +1,24 @@
 {
+  "$schema": "https://raw.githubusercontent.com/modelcontextprotocol/servers/main/mcp.schema.json",
   "servers": {
     "laravel-boost": {
       "command": "php",
-      "args": [
-        "artisan",
-        "boost:mcp"
-      ]
+      "args": ["artisan", "boost:mcp"],
+      "description": "Laravel Boost MCP server for code generation and scaffolding"
     },
     "herd": {
+      "comment": "Platform-specific paths:",
+      "comment_mac": "macOS: /Applications/Herd.app/Contents/Resources/herd-mcp.phar",
+      "comment_windows": "Windows: C:\\Program Files\\Herd\\resources\\herd-mcp.phar",
+      "comment_linux": "Linux: Not supported - use Laravel Valet or Docker instead",
       "command": "php",
       "args": [
         "/Applications/Herd.app/Contents/Resources/herd-mcp.phar"
       ],
       "env": {
         "SITE_PATH": "${workspaceFolder}"
-      }
+      },
+      "description": "Laravel Herd MCP for local PHP development server management (macOS/Windows)"
     },
     "oraios_serena": {
       "type": "stdio",
@@ -30,11 +34,13 @@
         "${workspaceFolder}",
         "--filter-tools",
         "read_file,write_file,replace_in_file,search_for_pattern,list_dir,create_directory,find_symbol_definition,find_referencing_symbols,read_memory,write_memory,search_memory"
-      ]
+      ],
+      "description": "Serena MCP for semantic code analysis and intelligent navigation"
     },
     "browsermcp": {
       "command": "npx",
-      "args": ["@browsermcp/mcp@latest"]
+      "args": ["@browsermcp/mcp@latest"],
+      "description": "BrowserMCP for real-time browser automation and testing"
     }
   }
 }

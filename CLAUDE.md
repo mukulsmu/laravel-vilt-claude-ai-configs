@@ -94,10 +94,10 @@ mcp__serena__write_memory "missing_documentation" "Document what needs to be add
 ## 🏗️ Laravel VILT Stack Architecture Quick Reference
 
 ### Core Technology Stack
-- **Laravel 12** + **VILT Stack** (Vue 3, Inertia.js, Laravel, Tailwind CSS)
+- **Laravel 12** (Laravel 11+ supported) + **VILT Stack** (Vue 3, Inertia.js, Laravel, Tailwind CSS)
 - **Vue 3** - Progressive JavaScript framework with Composition API
 - **Inertia.js** - SPA adapter bridging Laravel and Vue
-- **Ziggy** - Laravel routes in JavaScript
+- **Wayfinder/Ziggy** - Laravel routes in JavaScript (Wayfinder recommended for Laravel 12+)
 - **Laravel Herd** - Native PHP development environment
 - **Pest/PHPUnit** - PHP testing framework
 - **Vitest** - Vue component testing framework
@@ -118,7 +118,7 @@ mcp__serena__write_memory "missing_documentation" "Document what needs to be add
 
 ### Core Development Principles
 1. **Documentation First**: Always check `docs/` for detailed information
-2. **Pattern Consistency**: Follow existing TALL stack patterns  
+2. **Pattern Consistency**: Follow existing VILT stack patterns (Vue, Inertia, Laravel, Tailwind)
 3. **Quality Gates**: Use MCP tools for systematic quality assurance
 4. **Context Preservation**: Use Serena memory system to document decisions
 
@@ -239,7 +239,7 @@ git add -A && git commit -m "[action]: [description]"
 ### 📖 Reference Materials
 **Consult when:** Need command syntax, coding standards, architectural decisions, AI interaction patterns
 - **[Laravel Commands](docs/reference/laravel-commands.md)** - Complete Sail, Artisan, and project command reference
-- **[Code Conventions](docs/reference/code-conventions.md)** - TALL stack patterns, naming, structure standards
+- **[Code Conventions](docs/reference/code-conventions.md)** - VILT stack patterns, naming, structure standards
 - **[AI Interaction Patterns](docs/reference/ai-interaction-patterns.md)** - Natural language development techniques
 - **[Decision Tracking](docs/reference/decision-tracking.md)** - Architectural decision record templates & processes
 
